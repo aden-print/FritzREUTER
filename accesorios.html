@@ -5,36 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Accesorios - Fritz REUTER</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header-principal">
-    <div class="header-container">
-      <div class="logo-grande">
-        <img src="img/logo.png" alt="Fritz REUTER logo" />
-      </div>
-      <nav class="nav-derecha">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="servicios.html">Servicios</a></li>
-          <li><a href="accesorios.html" class="active">Accesorios</a></li>
-          <li><a href="precios.html">Precios</a></li>
-          <li><input type="search" placeholder="Buscar..." /></li>
-        </ul>
-      </nav>
+ <header class="header-principal">
+  <div class="header-container">
+    <div class="logo-grande">
+      <img src="img/logo.png" alt="Fritz REUTER logo" />
     </div>
-  </header>
 
-  <!-- CONTENIDO PRINCIPAL -->
+    <!-- Botón hamburguesa (input + label) -->
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <!-- Menú -->
+    <nav class="nav-derecha">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="accesorios.html">Accesorios</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><input type="search" placeholder="Buscar..." /></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
   <main class="container">
+    <!-- Introducción -->
     <section class="hero-content" style="padding: 3rem 1rem 1rem;">
       <h1>Accesorios Funerarios</h1>
-      <p style="text-align:center; max-width: 700px; margin: auto;">Ofrecemos una variedad de accesorios para ataúdes y acompañamiento del servicio. Cada detalle cuenta en un adiós digno.</p>
+      <p style="text-align:center; max-width: 700px; margin: auto;">Encuentra aquí los elementos complementarios para un servicio digno y sobrio. Cada accesorio está pensado para respetar los detalles que importan.</p>
     </section>
 
-    <!-- FILTROS -->
+    <!-- Filtro visual -->
     <div class="filtros">
       <label for="ordenar"><strong>Ordenar por:</strong></label>
       <select id="ordenar">
@@ -44,38 +49,30 @@
       </select>
     </div>
 
-    <!-- CATÁLOGO -->
+    <!-- Catálogo -->
     <div class="catalogo">
       <article class="producto">
-        <i data-lucide="package"></i>
         <img src="img/accesorio1.jpg" alt="Juego de asas" />
         <h3>Juego de Asas</h3>
         <p>S/ 215.00</p>
-        <button>Agregar</button>
       </article>
 
       <article class="producto">
-        <i data-lucide="badge-percent"></i>
-        <img src="img/accesorio2.jpg" alt="Placa de ataúd" />
+        <img src="img/accesorio2.jpg" alt="Placa de Ataúd" />
         <h3>Placa de Ataúd</h3>
         <p>S/ 236.45</p>
-        <button>Agregar</button>
       </article>
 
       <article class="producto">
-        <i data-lucide="layers"></i>
-        <img src="img/accesorio3.jpg" alt="Juego de manijas" />
+        <img src="img/accesorio3.jpg" alt="Juego de Manijas" />
         <h3>Juego de Manijas</h3>
         <p>S/ 251.00</p>
-        <button>Agregar</button>
       </article>
 
       <article class="producto">
-        <i data-lucide="lock"></i>
         <img src="img/accesorio4.jpg" alt="Cerraduras" />
         <h3>Cerraduras</h3>
         <p>S/ 29.13</p>
-        <button>Agregar</button>
       </article>
     </div>
   </main>
@@ -84,8 +81,5 @@
     <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p>
   </footer>
 
-  <script>
-    lucide.createIcons();
-  </script>
 </body>
 </html>
