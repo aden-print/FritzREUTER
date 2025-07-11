@@ -1,0 +1,346 @@
+/* === HEADER CON LOGO A LA IZQUIERDA Y NAV A LA DERECHA === */
+.header-principal {
+  background-color: #e1ecf4;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.logo-grande img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-derecha {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-derecha ul {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  list-style: none;
+  background-color: #4a90e2;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-derecha ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-derecha ul li a:hover,
+.nav-derecha ul li a.active {
+  background-color: #3579c2;
+}
+
+.nav-derecha ul li input[type="search"] {
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: none;
+}
+
+/* === MENÚ HAMBURGUESA CSS ONLY === */
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  color: #4a90e2;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 1001;
+}
+
+/* === HERO === */
+.hero {
+  background: linear-gradient(to right, #e1ecf4, #f5fbff);
+  text-align: center;
+  padding: 4rem 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #2b2b2b;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: #4a90e2;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #4a4a4a;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-img {
+  margin-top: 2rem;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* === DESTACADOS === */
+.destacados h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #2b2b2b;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  text-align: center;
+  width: 280px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  height: 80px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.card h3 {
+  color: #4a90e2;
+  margin-bottom: 0.5rem;
+}
+
+/* === CONTENEDOR Y SECCIONES === */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.section-box {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 6px solid #4a90e2;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.section-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2a2a2a;
+}
+
+.section-box p, .section-box ul li {
+  font-size: 1.05rem;
+  color: #444;
+}
+
+.contact-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-box li {
+  margin-bottom: 0.5rem;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: #4a90e2;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* === CATÁLOGO Y PRODUCTOS === */
+.catalogo, .productos-precio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.producto {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.producto img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.producto h3 {
+  font-size: 1.2rem;
+  color: #2b2b2b;
+  margin-bottom: 0.3rem;
+}
+
+.producto p {
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+.producto button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.producto button:hover {
+  background-color: #3579c2;
+}
+
+/* === FILTROS === */
+.filtros {
+  margin: 2rem 0 1rem;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.filtros select {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* === MEDIA QUERIES === */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-derecha {
+    width: 100%;
+  }
+
+  .nav-derecha ul {
+    display: none;
+    flex-direction: column;
+    background-color: #4a90e2;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  #menu-toggle:checked + .menu-icon + .nav-derecha ul {
+    display: flex;
+  }
+
+  .nav-derecha ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-derecha ul li a,
+  .nav-derecha ul li input[type="search"] {
+    width: 100%;
+  }
+
+  .logo-grande img {
+    height: 50px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .producto img {
+    height: 140px;
+  }
+
+  .producto button {
+    width: 100%;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  /* === RESPONSIVE SERVICIOS === */
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .section-box {
+    padding: 1.5rem 1rem;
+  }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Servicios - Fritz REUTER</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <header class="header-principal">
+  <div class="header-container">
+    <div class="logo-grande">
+      <img src="img/logo.png" alt="Fritz REUTER logo" />
+    </div>
+
+    <!-- Botón hamburguesa (input + label) -->
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <!-- Menú -->
+    <nav class="nav-derecha">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="accesorios.html">Accesorios</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><input type="search" placeholder="Buscar..." /></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container">
+    <section class="hero-content" style="padding: 3rem 1rem 1rem;">
+      <h1>Planes Funerarios</h1>
+      <p style="text-align:center; max-width: 700px; margin: auto;">Ofrecemos tres niveles de servicio adaptados a las necesidades de cada familia. Todos nuestros planes están diseñados con respeto, calidad y acompañamiento.</p>
+    </section>
+
+    <div class="cards-container">
+      <!-- Plan VIP -->
+      <article class="card">
+        <i data-lucide="crown"></i>
+        <h3>Plan VIP</h3>
+        <ul>
+          <li>Traslado del cuerpo</li>
+          <li>Preparación profesional</li>
+          <li>Coche de flores</li>
+          <li>Carroza de lujo</li>
+        </ul>
+      </article>
+
+      <!-- Plan Lujo -->
+      <article class="card">
+        <i data-lucide="medal"></i>
+        <h3>Plan Lujo</h3>
+        <ul>
+          <li>Todo lo del Plan VIP</li>
+          <li>Transmisión en vivo</li>
+          <li>Asesor personalizado</li>
+        </ul>
+      </article>
+
+      <!-- Plan Superior -->
+      <article class="card">
+        <i data-lucide="diamond"></i>
+        <h3>Plan Superior</h3>
+        <ul>
+          <li>Todo lo del Plan Lujo</li>
+          <li>Flores adicionales</li>
+          <li>Vehículo de acompañamiento</li>
+        </ul>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
