@@ -7,79 +7,143 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- ENCABEZADO PRINCIPAL -->
+  <header class="header-principal">
+    <div class="header-container">
+      <div class="logo-grande">
+        <a href="index.html">
+          <img src="img/logo.png" alt="Fritz REUTER logo" />
+        </a>
+      </div>
 
- <header class="header-principal">
-  <div class="header-container">
-    <div class="logo-grande">
-      <img src="img/logo.png" alt="Fritz REUTER logo" />
+      <!-- Botón hamburguesa -->
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">☰</label>
+
+      <!-- Menú de navegación -->
+     <nav class="nav-derecha">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="accesorios.html">Accesorios</a></li>
+    <li><a href="precios.html">Precios</a></li>
+    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+    <li><a href="mascotas.html">Mascotas</a></li> <!-- 🔹 Nueva pestaña -->
+    <li><input type="search" id="buscador" placeholder="Buscar..." /></li>
+  </ul>
+</nav>
+
     </div>
+  </header>
 
-    <!-- Botón hamburguesa (input + label) -->
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">☰</label>
-
-    <!-- Menú -->
-    <nav class="nav-derecha">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="accesorios.html">Accesorios</a></li>
-        <li><a href="precios.html">Precios</a></li>
-        <li><input type="search" placeholder="Buscar..." /></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
+  <!-- CONTENIDO PRINCIPAL -->
   <main class="container">
-    <!-- Introducción -->
     <section class="hero-content" style="padding: 3rem 1rem 1rem;">
       <h1>Accesorios Funerarios</h1>
-      <p style="text-align:center; max-width: 700px; margin: auto;">Encuentra aquí los elementos complementarios para un servicio digno y sobrio. Cada accesorio está pensado para respetar los detalles que importan.</p>
+      <p style="text-align:center; max-width: 700px; margin: auto;">
+        Encuentra aquí los elementos complementarios para un servicio digno y sobrio. 
+        Cada accesorio está pensado para respetar los detalles que importan.
+      </p>
     </section>
 
-    <!-- Filtro visual -->
+    <!-- FILTRO DE ORDENAMIENTO -->
     <div class="filtros">
-      <label for="ordenar"><strong>Ordenar por:</strong></label>
-      <select id="ordenar">
-        <option>Precio más bajo</option>
-        <option>Precio más alto</option>
-        <option>Nombre</option>
+      <label for="ordenar-accesorios"><strong>Ordenar por:</strong></label>
+      <select id="ordenar-accesorios">
+        <option value="asc">Precio más bajo</option>
+        <option value="desc">Precio más alto</option>
+        <option value="nombre">Nombre</option>
       </select>
     </div>
 
-    <!-- Catálogo -->
-    <div class="catalogo">
-      <article class="producto">
+    <!-- CATÁLOGO DE PRODUCTOS -->
+    <div id="catalogo-accesorios">
+      <article class="producto" data-precio="215" data-nombre="Juego de Asas" data-marca="accesorio">
         <img src="img/accesorio1.jpg" alt="Juego de asas" />
         <h3>Juego de Asas</h3>
         <p>S/ 215.00</p>
+        <button class="btn-comprar">Comprar</button>
       </article>
-
-      <article class="producto">
+      <article class="producto" data-precio="236.45" data-nombre="Placa de Ataúd" data-marca="accesorio">
         <img src="img/accesorio2.jpg" alt="Placa de Ataúd" />
         <h3>Placa de Ataúd</h3>
         <p>S/ 236.45</p>
+        <button class="btn-comprar">Comprar</button>
       </article>
-
-      <article class="producto">
+      <article class="producto" data-precio="251" data-nombre="Juego de Manijas" data-marca="accesorio">
         <img src="img/accesorio3.jpg" alt="Juego de Manijas" />
         <h3>Juego de Manijas</h3>
         <p>S/ 251.00</p>
+        <button class="btn-comprar">Comprar</button>
       </article>
-
-      <article class="producto">
+      <article class="producto" data-precio="29.13" data-nombre="Cerraduras" data-marca="accesorio">
         <img src="img/accesorio4.jpg" alt="Cerraduras" />
         <h3>Cerraduras</h3>
         <p>S/ 29.13</p>
+        <button class="btn-comprar">Comprar</button>
       </article>
     </div>
   </main>
 
+  <!-- MODAL DE COMPRA -->
+  <div id="modal-compra" class="modal">
+    <div class="modal-content">
+      <span class="cerrar">&times;</span>
+      <h2>Formulario de Compra</h2>
+      <form id="form-compra">
+        <label>Nombre:</label>
+        <input type="text" id="nombre" required>
+        <label>Dirección:</label>
+        <input type="text" id="direccion" required>
+        <label>Teléfono:</label>
+        <input type="tel" id="telefono" required>
+        <label>Método de Pago:</label>
+        <select id="metodo" required>
+          <option value="">Seleccione</option>
+          <option value="tarjeta">Tarjeta</option>
+          <option value="yape">Yape</option>
+          <option value="efectivo">Efectivo</option>
+        </select>
+        <label>Producto:</label>
+        <input type="text" id="producto-seleccionado" readonly>
+        <button type="submit">Pagar</button>
+      </form>
+      <div id="mensaje-exito" style="display:none; margin-top:1rem; color:green; font-weight:bold;">
+        Pago realizado con éxito ✅
+        <br>
+        <a id="btn-whatsapp" href="#" target="_blank">Contactar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
   <footer>
     <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p>
   </footer>
 
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+  <script>
+    // Ordenar accesorios
+    document.addEventListener("DOMContentLoaded", () => {
+      const catalogo = document.getElementById("catalogo-accesorios");
+      const select = document.getElementById("ordenar-accesorios");
+      if(catalogo && select){
+        const ordenar = () => {
+          const productos = Array.from(catalogo.querySelectorAll(".producto"));
+          const modo = select.value;
+          productos.sort((a,b)=>{
+            if(modo==="asc") return parseFloat(a.dataset.precio)-parseFloat(b.dataset.precio);
+            if(modo==="desc") return parseFloat(b.dataset.precio)-parseFloat(a.dataset.precio);
+            if(modo==="nombre") return a.dataset.nombre.localeCompare(b.dataset.nombre);
+            return 0;
+          });
+          productos.forEach(prod => catalogo.appendChild(prod));
+        };
+        select.addEventListener("change", ordenar);
+        ordenar();
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,100 +1,117 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html> <!-- Declara que el documento es HTML5 -->
+<html lang="es"> <!-- Define el idioma principal del contenido como español -->
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fritz REUTER - Inicio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" /> <!-- Define la codificación de caracteres como UTF-8 (soporta caracteres especiales) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Hace que el diseño sea adaptable a dispositivos móviles -->
+  <title>Fritz REUTER - Inicio</title> <!-- Título de la pestaña del navegador -->
+  <link rel="stylesheet" href="styles.css" /> <!-- Enlaza el archivo de estilos externo -->
 </head>
+
+
 <body>
 
+  <!-- ENCABEZADO PRINCIPAL -->
   <header class="header-principal">
-  <div class="header-container">
-    <div class="logo-grande">
-      <img src="img/logo.png" alt="Fritz REUTER logo" />
-    </div>
+    <div class="header-container"> <!-- Contenedor general del encabezado -->
 
-    <!-- Botón hamburguesa (input + label) -->
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">☰</label>
+      <div class="logo-grande">
+  <a href="index.html">
+    <img src="img/logo.png" alt="Fritz REUTER logo" />
+  </a>
+</div>
 
-    <!-- Menú -->
-    <nav class="nav-derecha">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="accesorios.html">Accesorios</a></li>
-        <li><a href="precios.html">Precios</a></li>
-        <li><input type="search" placeholder="Buscar..." /></li>
-      </ul>
-    </nav>
-  </div>
-</header>
 
+      <!-- Botón hamburguesa para menú en pantallas pequeñas -->
+      <input type="checkbox" id="menu-toggle" /> <!-- Checkbox oculto que controla la visibilidad del menú -->
+      <label for="menu-toggle" class="menu-icon">☰</label> <!-- Icono del menú hamburguesa -->
+
+      <!-- Menú de navegación -->
+     <nav class="nav-derecha">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="accesorios.html">Accesorios</a></li>
+    <li><a href="precios.html">Precios</a></li>
+    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+    <li><a href="mascotas.html">Mascotas</a></li> <!-- 🔹 Nueva pestaña -->
+    <li><input type="search" id="buscador" placeholder="Buscar..." /></li>
+  </ul>
+</nav>
+
+
+    </div> <!-- Fin header-container -->
+  </header>
+  
 
   <!-- SECCIÓN HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Bienvenidos a <span>Fritz REUTER</span></h1>
-      <p>Atención funeraria digna, profesional y humana. Acompañamos con respeto en los momentos más delicados.</p>
-      <img src="img/presentacion.jpg" alt="Ataúd elegante" class="hero-img">
+    <div class="hero-content"> <!-- Contenedor del contenido principal (hero) -->
+      <h1>Bienvenidos a <span>Fritz REUTER</span></h1> <!-- Título de bienvenida -->
+      <p>Atención funeraria digna, profesional y humana. Acompañamos con respeto en los momentos más delicados.</p> <!-- Subtítulo o eslogan -->
+      <img src="img/presentacion.jpg" alt="Ataúd elegante" class="hero-img"> <!-- Imagen destacada del hero -->
     </div>
   </section>
 
-  <!-- SECCIÓN DESTACADA -->
-  <section class="destacados container">
-    <h2>¿Por qué elegirnos?</h2>
-    <div class="cards-container">
-      <article class="card">
-        <img src="img/icono1.png" alt="Empatía" />
-        <h3>Atención Humana</h3>
-        <p>Nos enfocamos en acompañar con sensibilidad y respeto.</p>
+  <!-- SECCIÓN DESTACADOS -->
+  <section class="destacados container"> <!-- Sección con tarjetas informativas -->
+    <h2>¿Por qué elegirnos?</h2> <!-- Título de la sección -->
+    <div class="cards-container"> <!-- Contenedor de las tarjetas -->
+
+      <article class="card"> <!-- Primera tarjeta -->
+        <img src="img/icono1.png" alt="Empatía" /> <!-- Icono de la tarjeta -->
+        <h3>Atención Humana</h3> <!-- Título de la tarjeta -->
+        <p>Nos enfocamos en acompañar con sensibilidad y respeto.</p> <!-- Descripción -->
       </article>
-      <article class="card">
+
+      <article class="card"> <!-- Segunda tarjeta -->
         <img src="img/icono2.png" alt="Calidad" />
         <h3>Calidad y detalle</h3>
         <p>Servicios personalizados y detallados para cada necesidad.</p>
       </article>
-      <article class="card">
+
+      <article class="card"> <!-- Tercera tarjeta -->
         <img src="img/icono3.png" alt="Trayectoria" />
         <h3>Experiencia</h3>
         <p>Años de servicio nos respaldan como líderes en el sector.</p>
       </article>
-    </div>
+
+    </div> <!-- Fin de cards-container -->
   </section>
 
-  <!-- INFORMACIÓN GENERAL -->
-  <main class="container">
+  <!-- INFORMACIÓN GENERAL PRINCIPAL -->
+  <main class="container"> <!-- Contenedor principal de contenido -->
 
-    <section class="section-box">
+    <section class="section-box"> <!-- Sección "Sobre nosotros" -->
       <h2>Sobre Nosotros</h2>
       <p>Somos una empresa funeraria dedicada a brindar servicios de calidad, personalizados y con profundo respeto por cada familia.</p>
     </section>
 
-    <section class="section-box">
+    <section class="section-box"> <!-- Sección "Misión" -->
       <h2>Misión</h2>
       <p>Brindar soluciones funerarias integrales, con empatía y compromiso, garantizando una despedida digna y serena.</p>
     </section>
 
-    <section class="section-box">
+    <section class="section-box"> <!-- Sección "Visión" -->
       <h2>Visión</h2>
       <p>Ser la funeraria referente en atención humanizada y excelencia en el servicio en el país.</p>
     </section>
 
-    <section class="section-box contact-box">
+    <section class="section-box contact-box"> <!-- Sección de contacto -->
       <h2>Contáctanos</h2>
-      <ul>
+      <ul> <!-- Lista de datos de contacto -->
         <li><strong>Teléfono:</strong> +51 910 082 285</li>
         <li><strong>Email:</strong> contacto@fritzreuter.com</li>
         <li><strong>Dirección:</strong> Av. Paz Eterna 789, Lima</li>
       </ul>
     </section>
 
-  </main>
+  </main> <!-- Fin del contenido principal -->
 
+  <!-- PIE DE PÁGINA -->
   <footer>
-    <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p>
+    <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p> <!-- Derechos reservados -->
   </footer>
-
+<script src="script.js"></script>
 </body>
 </html>

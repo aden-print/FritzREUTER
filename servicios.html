@@ -5,43 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Servicios - Fritz REUTER</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="servicios.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-<header class="header-principal">
-  <div class="header-container">
-    <div class="logo-grande">
-      <img src="img/logo.png" alt="Fritz REUTER logo" />
+
+  <!-- ENCABEZADO PRINCIPAL -->
+  <header class="header-principal">
+    <div class="header-container">
+      <div class="logo-grande">
+        <a href="index.html">
+          <img src="img/logo.png" alt="Fritz REUTER logo" />
+        </a>
+      </div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">☰</label>
+     <nav class="nav-derecha">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="accesorios.html">Accesorios</a></li>
+    <li><a href="precios.html">Precios</a></li>
+    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+    <li><a href="mascotas.html">Mascotas</a></li> <!-- 🔹 Nueva pestaña -->
+    <li><input type="search" id="buscador" placeholder="Buscar..." /></li>
+  </ul>
+</nav>
+
     </div>
-
-    <!-- Botón hamburguesa (input + label) -->
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">☰</label>
-
-    <!-- Menú -->
-    <nav class="nav-derecha">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="accesorios.html">Accesorios</a></li>
-        <li><a href="precios.html">Precios</a></li>
-        <li><input type="search" placeholder="Buscar..." /></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+  </header>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="container">
+
     <section class="hero-content" style="padding: 3rem 1rem 1rem;">
       <h1>Planes Funerarios</h1>
-      <p style="text-align:center; max-width: 700px; margin: auto;">Ofrecemos tres niveles de servicio adaptados a las necesidades de cada familia. Todos nuestros planes están diseñados con respeto, calidad y acompañamiento.</p>
+      <p style="text-align:center; max-width: 700px; margin: auto;">
+        Ofrecemos tres niveles de servicio adaptados a las necesidades de cada familia. 
+        Todos nuestros planes están diseñados con respeto, calidad y acompañamiento.
+      </p>
     </section>
 
+    <!-- CONTENEDOR DE TARJETAS PARA LOS PLANES -->
     <div class="cards-container">
-      <!-- Plan VIP -->
-      <article class="card">
+
+      <!-- PLAN VIP -->
+      <article class="card" data-plan="VIP">
         <i data-lucide="crown"></i>
         <h3>Plan VIP</h3>
         <ul>
@@ -50,10 +59,11 @@
           <li>Coche de flores</li>
           <li>Carroza de lujo</li>
         </ul>
+        <button class="btn-personalizar">Personalizar</button>
       </article>
 
-      <!-- Plan Lujo -->
-      <article class="card">
+      <!-- PLAN LUJO -->
+      <article class="card" data-plan="Lujo">
         <i data-lucide="medal"></i>
         <h3>Plan Lujo</h3>
         <ul>
@@ -61,10 +71,11 @@
           <li>Transmisión en vivo</li>
           <li>Asesor personalizado</li>
         </ul>
+        <button class="btn-personalizar">Personalizar</button>
       </article>
 
-      <!-- Plan Superior -->
-      <article class="card">
+      <!-- PLAN SUPERIOR -->
+      <article class="card" data-plan="Superior">
         <i data-lucide="diamond"></i>
         <h3>Plan Superior</h3>
         <ul>
@@ -72,10 +83,71 @@
           <li>Flores adicionales</li>
           <li>Vehículo de acompañamiento</li>
         </ul>
+        <button class="btn-personalizar">Personalizar</button>
       </article>
-    </div>
+
+    </div> <!-- Fin cards-container -->
+
   </main>
 
+  <!-- MODAL DE PERSONALIZACIÓN DE PLAN -->
+  <div id="modal-plan" class="modal-plan">
+    <div class="modal-content-plan">
+      <span class="cerrar-plan">&times;</span>
+      <h2 id="titulo-plan">Personalizar Plan</h2>
+      
+      <ul id="lista-servicios">
+        <!-- Servicios se cargarán dinámicamente -->
+      </ul>
+
+      <div style="margin: 1rem 0;">
+        <input type="text" id="nuevo-servicio" placeholder="Agregar nuevo servicio" />
+        <button id="agregar-servicio">Agregar</button>
+      </div>
+
+      <h3>Datos del Cliente</h3>
+      <form id="form-plan">
+        <label>Nombre:</label>
+        <input type="text" id="nombre" required>
+        <label>Teléfono:</label>
+        <input type="tel" id="telefono" required>
+        <label>Método de Pago:</label>
+        <select id="metodo" required>
+          <option value="">Seleccione</option>
+          <option value="Tarjeta">Tarjeta</option>
+          <option value="Yape">Yape</option>
+          <option value="Efectivo">Efectivo</option>
+        </select>
+        <button type="submit">Pagar / Contactar</button>
+      </form>
+
+      <div id="mensaje-exito" style="display:none; margin-top:1rem; color:green; font-weight:bold;">
+        Compra realizada con éxito ✅
+        <br>
+        <a id="btn-whatsapp" href="#" target="_blank">Contactar por WhatsApp</a>
+      </div>
+    </div>
+  </div><!-- Modal de Confirmación de Pago -->
+<div class="modal fade" id="modalPago" tabindex="-1" aria-labelledby="modalPagoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-lg border-0">
+      <div class="modal-header bg-success text-white rounded-top-4">
+        <h5 class="modal-title" id="modalPagoLabel">✅ Pago Exitoso</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h4 class="mb-3">¡Gracias por tu compra! 🎉</h4>
+        <p class="text-muted">Tu pedido ha sido procesado correctamente.</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-success px-4 rounded-pill" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- PIE DE PÁGINA -->
   <footer>
     <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p>
   </footer>
@@ -83,5 +155,8 @@
   <script>
     lucide.createIcons();
   </script>
+  <script src="script.js"></script>
+  <script src="servicios.js"></script>
+
 </body>
 </html>

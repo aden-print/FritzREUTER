@@ -7,70 +7,160 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
+<!-- ENCABEZADO PRINCIPAL -->
+  <!-- ENCABEZADO PRINCIPAL -->
   <header class="header-principal">
-  <div class="header-container">
-    <div class="logo-grande">
-      <img src="img/logo.png" alt="Fritz REUTER logo" />
-    </div>
+    <div class="header-container"> <!-- Contenedor general del encabezado -->
 
-    <!-- Botón hamburguesa (input + label) -->
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">☰</label>
-
-    <!-- Menú -->
-    <nav class="nav-derecha">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="accesorios.html">Accesorios</a></li>
-        <li><a href="precios.html">Precios</a></li>
-        <li><input type="search" placeholder="Buscar..." /></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      <div class="logo-grande">
+  <a href="index.html">
+    <img src="img/logo.png" alt="Fritz REUTER logo" />
+  </a>
+</div>
 
 
-  <!-- HERO -->
+      <!-- Botón hamburguesa para menú en pantallas pequeñas -->
+      <input type="checkbox" id="menu-toggle" /> <!-- Checkbox oculto que controla la visibilidad del menú -->
+      <label for="menu-toggle" class="menu-icon">☰</label> <!-- Icono del menú hamburguesa -->
+
+      <!-- Menú de navegación -->
+     <nav class="nav-derecha">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="accesorios.html">Accesorios</a></li>
+    <li><a href="precios.html">Precios</a></li>
+    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+    <li><a href="mascotas.html">Mascotas</a></li> <!-- 🔹 Nueva pestaña -->
+    <li><input type="search" id="buscador" placeholder="Buscar..." /></li>
+  </ul>
+</nav>
+
+    </div> <!-- Fin header-container -->
+  </header>
+
+  <!-- CONTENIDO -->
   <main class="container">
     <section class="hero-content" style="padding: 3rem 1rem 1rem;">
       <h1>Ataúdes y Precios</h1>
-      <p style="text-align:center; max-width: 700px; margin: auto;">Conoce nuestros modelos de ataúdes disponibles, con detalles de lujo, materiales de alta calidad y un precio justo para cada necesidad.</p>
+      <p style="text-align:center; max-width: 700px; margin: auto;">
+        Conoce nuestros modelos de ataúdes disponibles, con detalles de lujo, materiales de alta calidad y un precio justo para cada necesidad.
+      </p>
     </section>
 
     <!-- FILTROS -->
     <div class="filtros">
-      <select><option>Marca</option></select>
-      <select><option>Estado</option></select>
-      <select><option>Precio</option></select>
-      <select><option>Pago</option></select>
+      <label><strong>Marca:</strong></label>
+      <select id="filtro-marca">
+        <option value="todos">Todas</option>
+        <option value="emporium">Emporium</option>
+        <option value="plateado">Plateado</option>
+      </select>
+
+      <label><strong>Ordenar por:</strong></label>
+      <select id="ordenar-precios">
+        <option value="asc">Precio más bajo</option>
+        <option value="desc">Precio más alto</option>
+        <option value="nombre">Nombre</option>
+      </select>
     </div>
 
-    <!-- PRODUCTOS DESTACADOS -->
-    <div class="productos-precio">
-      <article class="producto">
+    <!-- CATÁLOGO -->
+    <div id="catalogo-precios" class="productos-precio">
+
+      <article class="producto" data-marca="emporium" data-precio="5814.57" data-nombre="Ataúd Emporium Calibre 18">
         <img src="img/ataud1.jpg" alt="Ataúd Emporium Calibre 18" />
         <h3>Ataúd Emporium Calibre 18</h3>
         <p>S/ 5,814.57</p>
-        <button>Guardar</button>
-        <button>🤍</button>
+        <button class="btn-comprar">Comprar</button>
+        
       </article>
 
-      <article class="producto">
+      <article class="producto" data-marca="plateado" data-precio="3277.30" data-nombre="Ataúd Plateado Slim">
         <img src="img/ataud2.jpg" alt="Ataúd Plateado Slim" />
         <h3>Ataúd Plateado Slim</h3>
         <p>S/ 3,277.30</p>
-        <button>Guardar</button>
-        <button>🤍</button>
+        <button class="btn-comprar">Comprar</button>
+        
       </article>
+
+      <article class="producto" data-marca="emporium" data-precio="4200.00" data-nombre="Ataúd Emporium Deluxe">
+        <img src="img/ataud1.jpg" alt="Ataúd Emporium Deluxe" />
+        <h3>Ataúd Emporium Deluxe</h3>
+        <p>S/ 4,200.00</p>
+        <button class="btn-comprar">Comprar</button>
+       
+      </article>
+
+      <article class="producto" data-marca="plateado" data-precio="2100.50" data-nombre="Ataúd Plateado Básico">
+        <img src="img/ataud1.jpg" alt="Ataúd Plateado Básico" />
+        <h3>Ataúd Plateado Básico</h3>
+        <p>S/ 2,100.50</p>
+        <button class="btn-comprar">Comprar</button>
+       
+      </article>
+
+      <article class="producto" data-marca="emporium" data-precio="3500.00" data-nombre="Ataúd Emporium Elegance">
+        <img src="img/ataud1.jpg" alt="Ataúd Emporium Elegance" />
+        <h3>Ataúd Emporium Elegance</h3>
+        <p>S/ 3,500.00</p>
+        <button class="btn-comprar">Comprar</button>
+        
+      </article>
+
+      <article class="producto" data-marca="plateado" data-precio="2800.00" data-nombre="Ataúd Plateado Premium">
+        <img src="img/ataud1.jpg" alt="Ataúd Plateado Premium" />
+        <h3>Ataúd Plateado Premium</h3>
+        <p>S/ 2,800.00</p>
+        <button class="btn-comprar">Comprar</button>
+        
+      </article>
+
     </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- MODAL DE COMPRA -->
+  <div id="modal-compra" class="modal">
+    <div class="modal-content">
+      <span class="cerrar">&times;</span>
+      <h2>Formulario de Compra</h2>
+      <form id="form-compra">
+        <label>Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label>Dirección:</label>
+        <input type="text" id="direccion" required>
+
+        <label>Teléfono:</label>
+        <input type="tel" id="telefono" required>
+
+        <label>Método de Pago:</label>
+        <select id="metodo" required>
+          <option value="">Seleccione</option>
+          <option value="tarjeta">Tarjeta</option>
+          <option value="yape">Yape</option>
+          <option value="efectivo">Efectivo</option>
+        </select>
+
+        <label>Producto:</label>
+        <input type="text" id="producto-seleccionado" readonly>
+
+        <button type="submit">Pagar</button>
+      </form>
+      <div id="mensaje-exito" style="display:none; margin-top:1rem; color:green; font-weight:bold;">
+        Pago realizado con éxito ✅
+        <br>
+        <a id="btn-whatsapp" href="#" target="_blank">Contactar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIE -->
   <footer>
     <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p>
   </footer>
 
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
 </body>
 </html>

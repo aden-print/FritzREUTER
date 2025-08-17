@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fritz REUTER - Arreglos Florales</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <!-- ENCABEZADO PRINCIPAL -->
+  <header class="header-principal">
+    <div class="header-container"> <!-- Contenedor general del encabezado -->
+
+      <div class="logo-grande">
+  <a href="index.html">
+    <img src="img/logo.png" alt="Fritz REUTER logo" />
+  </a>
+</div>
+
+
+      <!-- Botón hamburguesa para menú en pantallas pequeñas -->
+      <input type="checkbox" id="menu-toggle" /> <!-- Checkbox oculto que controla la visibilidad del menú -->
+      <label for="menu-toggle" class="menu-icon">☰</label> <!-- Icono del menú hamburguesa -->
+
+      <!-- Menú de navegación -->
+    <nav class="nav-derecha">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="accesorios.html">Accesorios</a></li>
+    <li><a href="precios.html">Precios</a></li>
+    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+    <li><a href="mascotas.html">Mascotas</a></li> <!-- 🔹 Nueva pestaña -->
+    <li><input type="search" id="buscador" placeholder="Buscar..." /></li>
+  </ul>
+</nav>
+
+    </div> <!-- Fin header-container -->
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Arreglos <span>Florales</span> Especiales</h1>
+      <p>Diseños elegantes y personalizados para acompañar cada despedida con respeto y cariño.</p>
+      <img src="img/florr.jpg" alt="Arreglos Florales" class="hero-img">
+    </div>
+  </section>
+
+  <!-- SECCIÓN DESCRIPTIVA -->
+  <section class="container section-box">
+    <h2>Nuestra Filosofía Floral</h2>
+    <p>En Fritz REUTER entendemos que cada despedida merece un detalle que exprese sentimientos de amor, respeto y memoria. Nuestros arreglos florales son cuidadosamente diseñados por expertos floristas para brindar armonía, elegancia y consuelo en estos momentos especiales.</p>
+    <p>Ofrecemos una amplia variedad de flores frescas, combinaciones de colores y estilos que pueden personalizarse según sus preferencias y necesidades.</p>
+  </section>
+
+  <!-- FILTROS -->
+  <section class="container filtros">
+    <label for="tipo-flor">Tipo de Flor:</label>
+    <select id="tipo-flor">
+      <option value="todos">Todos</option>
+      <option value="rosas">Rosas</option>
+      <option value="lirios">Lirios</option>
+      <option value="orquideas">Orquídeas</option>
+    </select>
+
+    <label for="ordenar-precios">Ordenar por Precio:</label>
+    <select id="ordenar-precios">
+      <option value="asc">Menor a Mayor</option>
+      <option value="desc">Mayor a Menor</option>
+    </select>
+  </section>
+
+  <!-- CATÁLOGO DE ARREGLOS -->
+  <main class="container catalogo" id="catalogo-precios">
+    <article class="producto" data-marca="rosas" data-precio="120" data-nombre="Rosas Blancas Elegantes">
+      <img src="img/1.jpeg" alt="Rosas Blancas Elegantes">
+      <h3>Rosas Blancas Elegantes</h3>
+      <p>S/.120</p>
+      <button class="btn-comprar">Comprar</button>
+    </article>
+
+    <article class="producto" data-marca="lirios" data-precio="150" data-nombre="Lirios y Rosas">
+      <img src="img/333.jpg" alt="Lirios y Rosas">
+      <h3>Lirios y Rosas</h3>
+      <p>S/.150</p>
+      <button class="btn-comprar">Comprar</button>
+    </article>
+
+    <article class="producto" data-marca="orquideas" data-precio="200" data-nombre="Orquídeas Selectas">
+      <img src="img/5.jpg" alt="Orquídeas Selectas">
+      <h3>Orquídeas Selectas</h3>
+      <p>S/.200</p>
+      <button class="btn-comprar">Comprar</button>
+    </article>
+
+    <article class="producto" data-marca="rosas" data-precio="180" data-nombre="Rosas Rojas Premium">
+      <img src="img/4.jpg" alt="Rosas Rojas Premium">
+      <h3>Rosas Rojas Premium</h3>
+      <p>S/.180</p>
+      <button class="btn-comprar">Comprar</button>
+    </article>
+
+    <article class="producto" data-marca="lirios" data-precio="140" data-nombre="Lirios Blancos">
+      <img src="img/2.jpg" alt="Lirios Blancos">
+      <h3>Lirios Blancos</h3>
+      <p>S/.140</p>
+      <button class="btn-comprar">Comprar</button>
+    </article>
+
+    <article class="producto" data-marca="orquideas" data-precio="220" data-nombre="Orquídeas Rosadas">
+      <img src="img/6.jpg" alt="Orquídeas Rosadas">
+      <h3>Orquídeas Rosadas</h3>
+      <p>S/.220</p>
+      <button class="btn-comprar">Comprar</button>
+    </article>
+  </main>
+
+  <!-- MODAL DE COMPRA -->
+  <div id="modal-compra" class="modal">
+    <div class="modal-content">
+      <span class="cerrar">&times;</span>
+      <h2>Formulario de Compra</h2>
+      <form id="form-compra">
+        <label>Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label>Dirección:</label>
+        <input type="text" id="direccion" required>
+
+        <label>Teléfono:</label>
+        <input type="tel" id="telefono" required>
+
+        <label>Método de Pago:</label>
+        <select id="metodo" required>
+          <option value="">Seleccione</option>
+          <option value="tarjeta">Tarjeta</option>
+          <option value="yape">Yape</option>
+          <option value="efectivo">Efectivo</option>
+        </select>
+
+        <label>Producto:</label>
+        <input type="text" id="producto-seleccionado" readonly>
+
+        <button type="submit">Pagar</button>
+      </form>
+      <div id="mensaje-exito" style="display:none; margin-top:1rem; color:green; font-weight:bold;">
+        Pago realizado con éxito ✅
+        <br>
+        <a id="btn-whatsapp" href="#" target="_blank">Contactar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIOS -->
+  <section class="container section-box">
+    <h2>Testimonios de Clientes</h2>
+    <div class="cards-container">
+      <article class="card">
+        <p>"La calidad de los arreglos florales fue impresionante y nos brindó un momento de paz y consuelo."</p>
+        <h3>- Familia García</h3>
+      </article>
+
+      <article class="card">
+        <p>"Cada detalle estaba perfectamente cuidado. Recomiendo Fritz REUTER por su profesionalismo y empatía."</p>
+        <h3>- Juan Pérez</h3>
+      </article>
+
+      <article class="card">
+        <p>"Los arreglos florales hicieron que la despedida de mi ser querido fuera más hermosa y significativa."</p>
+        <h3>- María López</h3>
+      </article>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
