@@ -8,9 +8,8 @@
 }
 
 /* Fondo oscuro para el modal */
-/* Fondo oscuro para el modal */
 .modal-plan {
-  display: none;  /* Solo oculto al inicio */
+  display: none;  
   position: fixed;
   z-index: 1050;
   top: 0; 
@@ -18,12 +17,12 @@
   width: 100%; 
   height: 100%;
   background-color: rgba(0,0,0,0.6);
-  justify-content: center; /* Esto se usará recién cuando esté visible */
+  justify-content: center; 
   align-items: center;
   padding: 1rem;
   backdrop-filter: blur(5px);
+  overflow-y: auto; /* scroll si contenido excede altura */
 }
-
 
 /* Caja principal del modal */
 .modal-content-plan {
@@ -31,7 +30,9 @@
   padding: 2rem;
   border-radius: 15px;
   width: 90%;
-  max-width: 550px;
+  max-width: 500px;
+  max-height: 80vh; /* altura máxima al 80% de la ventana */
+  overflow-y: auto; /* scroll interno si contenido es más alto */
   box-shadow: 0 8px 25px rgba(0,0,0,0.25);
   animation: fadeIn 0.3s ease-in-out;
   position: relative;
@@ -41,9 +42,9 @@
 /* Botón de cerrar */
 .cerrar-plan {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 1.8rem;
+  top: 10px;
+  right: 10px;
+  font-size: 1.6rem;
   cursor: pointer;
   color: #444;
   transition: 0.3s;
@@ -105,7 +106,7 @@
   transform: translateY(-2px);
 }
 
-/* --- FORMULARIO DE DATOS DEL CLIENTE --- */
+/* Formulario de datos del cliente */
 #form-plan {
   margin-top: 1.5rem;
   display: flex;
@@ -192,4 +193,72 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
+}
+
+/* === MEDIA QUERIES RESPONSIVE === */
+@media (max-width: 768px) {
+  .modal-content-plan {
+    width: 90%;
+    padding: 1.2rem;
+    max-height: 80vh; 
+  }
+
+  #lista-servicios li {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  #lista-servicios li button {
+    margin-top: 0.3rem;
+    align-self: flex-end;
+  }
+
+  .btn-personalizar,
+  #agregar-servicio,
+  #form-plan button[type="submit"] {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  #form-plan input,
+  #form-plan select,
+  #nuevo-servicio {
+    font-size: 0.95rem;
+    padding: 0.45rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content-plan {
+    width: 95%;
+    padding: 0.8rem;
+    border-radius: 10px;
+    max-height: 75vh; /* más compacto */
+  }
+
+  #lista-servicios li {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  #lista-servicios li button {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .btn-personalizar,
+  #agregar-servicio,
+  #form-plan button[type="submit"] {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.7rem;
+  }
+
+  #form-plan input,
+  #form-plan select,
+  #nuevo-servicio {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.5rem;
+  }
 }

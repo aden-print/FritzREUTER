@@ -9,35 +9,32 @@
 <body>
 
   <!-- HEADER -->
-  <!-- ENCABEZADO PRINCIPAL -->
   <header class="header-principal">
-    <div class="header-container"> <!-- Contenedor general del encabezado -->
+    <div class="header-container">
 
       <div class="logo-grande">
-  <a href="index.html">
-    <img src="img/logo.png" alt="Fritz REUTER logo" />
-  </a>
-</div>
+        <a href="index.html">
+          <img src="img/logo.png" alt="Fritz REUTER logo" />
+        </a>
+      </div>
 
+      <!-- Menú hamburguesa -->
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">☰</label>
 
-      <!-- Botón hamburguesa para menú en pantallas pequeñas -->
-      <input type="checkbox" id="menu-toggle" /> <!-- Checkbox oculto que controla la visibilidad del menú -->
-      <label for="menu-toggle" class="menu-icon">☰</label> <!-- Icono del menú hamburguesa -->
+      <nav class="nav-derecha">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="accesorios.html">Accesorios</a></li>
+          <li><a href="precios.html">Precios</a></li>
+          <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+          <li><a href="mascotas.html">Mascotas</a></li>
+          <li><input type="search" id="buscador" placeholder="Buscar..." /></li>
+        </ul>
+      </nav>
 
-      <!-- Menú de navegación -->
-    <nav class="nav-derecha">
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="servicios.html">Servicios</a></li>
-    <li><a href="accesorios.html">Accesorios</a></li>
-    <li><a href="precios.html">Precios</a></li>
-    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
-    <li><a href="mascotas.html">Mascotas</a></li> <!-- 🔹 Nueva pestaña -->
-    <li><input type="search" id="buscador" placeholder="Buscar..." /></li>
-  </ul>
-</nav>
-
-    </div> <!-- Fin header-container -->
+    </div>
   </header>
 
   <!-- HERO -->
