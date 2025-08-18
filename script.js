@@ -103,45 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ordenarCatalogo("catalogo","ordenar","nombre");
   }
 
-  // ----------------------
-  // BUSCADOR UNIVERSAL
-  // ----------------------
-  const buscador = document.getElementById("buscador");
-  if(buscador){
-    buscador.addEventListener("input", function(){
-      const texto = this.value.trim().toLowerCase();
-      quitarResaltados(document.body);
-      if(texto.length>0) resaltarTexto(document.body,texto);
-    });
-  }
 
-  function quitarResaltados(elemento){
-    const resaltados = elemento.querySelectorAll("span.resaltado");
-    resaltados.forEach(span => span.replaceWith(document.createTextNode(span.textContent)));
-  }
-
-  function resaltarTexto(elemento,texto){
-    if(elemento.nodeType===3){
-      const valor = elemento.nodeValue;
-      const valorLower = valor.toLowerCase();
-      if(valorLower.includes(texto)){
-        const fragment = document.createDocumentFragment();
-        let lastIndex=0;
-        valorLower.replace(new RegExp(texto,"gi"),(match,index)=>{
-          fragment.appendChild(document.createTextNode(valor.substring(lastIndex,index)));
-          const span = document.createElement("span");
-          span.className="resaltado";
-          span.textContent=valor.substring(index,index+match.length);
-          fragment.appendChild(span);
-          lastIndex=index+match.length;
-        });
-        fragment.appendChild(document.createTextNode(valor.substring(lastIndex)));
-        elemento.parentNode.replaceChild(fragment, elemento);
-      }
-    } else if(elemento.nodeType===1 && elemento.childNodes && !/(script|style)/i.test(elemento.tagName)){
-      elemento.childNodes.forEach(child=>resaltarTexto(child,texto));
-    }
-  }
 
 });
 // Modal de accesorios
@@ -200,4 +162,12 @@ document.querySelectorAll(".btn-agregar").forEach(btn => {
 document.getElementById("finalizar-accesorios").addEventListener("click", () => {
   modalAccesorios.style.display = "none";
   document.getElementById("modal-compra").style.display = "block";
+});
+// Al abrir el formulario de compra
+document.addEventListener("DOMContentLoaded", () => {
+  const personalizado = localStorage.getItem("seleccionPersonalizada");
+  if (personalizado) {
+    document.getElementById("producto-seleccionado").value = personalizado;
+    localStorage.removeItem("seleccionPersonalizada"); // limpiar después
+  }
 });

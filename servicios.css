@@ -262,3 +262,27 @@
     padding: 0.4rem 0.5rem;
   }
 }
+/* Botones de acción (Adquirir y Personalizar) */
+.btn-personalizar,
+.btn-adquirir {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+  text-decoration: none; /* 🔹 Para los <a> */
+  text-align: center;
+}
+
+.btn-personalizar:hover,
+.btn-adquirir:hover {
+  background-color: var(--color-primario);
+  transform: translateY(-2px);
+}

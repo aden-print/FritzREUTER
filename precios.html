@@ -7,36 +7,32 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<!-- ENCABEZADO PRINCIPAL -->
   <!-- ENCABEZADO PRINCIPAL -->
   <header class="header-principal">
-    <div class="header-container"> <!-- Contenedor general del encabezado -->
-
+    <div class="header-container">
       <div class="logo-grande">
-  <a href="index.html">
-    <img src="img/logo.png" alt="Fritz REUTER logo" />
-  </a>
-</div>
+        <a href="index.html">
+          <img src="img/logo.png" alt="Fritz REUTER logo" />
+        </a>
+      </div>
 
+      <!-- Botón hamburguesa -->
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">☰</label>
 
-      <!-- Botón hamburguesa para menú en pantallas pequeñas -->
-      <input type="checkbox" id="menu-toggle" /> <!-- Checkbox oculto que controla la visibilidad del menú -->
-      <label for="menu-toggle" class="menu-icon">☰</label> <!-- Icono del menú hamburguesa -->
-
-      <!-- Menú de navegación -->
-     <nav class="nav-derecha">
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="servicios.html">Servicios</a></li>
-    <li><a href="accesorios.html">Accesorios</a></li>
-    <li><a href="precios.html">Precios</a></li>
-    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
-    <li><a href="mascotas.html">Mascotas</a></li> <!-- 🔹 Nueva pestaña -->
-    <li><input type="search" id="buscador" placeholder="Buscar..." /></li>
-  </ul>
-</nav>
-
-    </div> <!-- Fin header-container -->
+      <!-- Navegación -->
+      <nav class="nav-derecha">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="accesorios.html">Accesorios</a></li>
+          <li><a href="precios.html">Precios</a></li>
+          <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+          <li><a href="mascotas.html">Mascotas</a></li>
+          
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <!-- CONTENIDO -->
@@ -67,21 +63,20 @@
 
     <!-- CATÁLOGO -->
     <div id="catalogo-precios" class="productos-precio">
-
+      
+      <!-- PRODUCTOS -->
       <article class="producto" data-marca="emporium" data-precio="5814.57" data-nombre="Ataúd Emporium Calibre 18">
-        <img src="img/ataud1.jpg" alt="Ataúd Emporium Calibre 18" />
+        <img src="img/ultima.jpg" alt="Ataúd Emporium Calibre 18" />
         <h3>Ataúd Emporium Calibre 18</h3>
         <p>S/ 5,814.57</p>
         <button class="btn-comprar">Comprar</button>
-        
       </article>
 
       <article class="producto" data-marca="plateado" data-precio="3277.30" data-nombre="Ataúd Plateado Slim">
-        <img src="img/ataud2.jpg" alt="Ataúd Plateado Slim" />
+        <img src="img/slim.jpg" alt="Ataúd Plateado Slim" />
         <h3>Ataúd Plateado Slim</h3>
         <p>S/ 3,277.30</p>
         <button class="btn-comprar">Comprar</button>
-        
       </article>
 
       <article class="producto" data-marca="emporium" data-precio="4200.00" data-nombre="Ataúd Emporium Deluxe">
@@ -89,31 +84,49 @@
         <h3>Ataúd Emporium Deluxe</h3>
         <p>S/ 4,200.00</p>
         <button class="btn-comprar">Comprar</button>
-       
       </article>
 
       <article class="producto" data-marca="plateado" data-precio="2100.50" data-nombre="Ataúd Plateado Básico">
-        <img src="img/ataud1.jpg" alt="Ataúd Plateado Básico" />
+        <img src="img/plateadobasic.jpg" alt="Ataúd Plateado Básico" />
         <h3>Ataúd Plateado Básico</h3>
         <p>S/ 2,100.50</p>
         <button class="btn-comprar">Comprar</button>
-       
       </article>
 
       <article class="producto" data-marca="emporium" data-precio="3500.00" data-nombre="Ataúd Emporium Elegance">
-        <img src="img/ataud1.jpg" alt="Ataúd Emporium Elegance" />
+        <img src="img/imperiunelegance.jpg" alt="Ataúd Emporium Elegance" />
         <h3>Ataúd Emporium Elegance</h3>
         <p>S/ 3,500.00</p>
         <button class="btn-comprar">Comprar</button>
-        
       </article>
 
       <article class="producto" data-marca="plateado" data-precio="2800.00" data-nombre="Ataúd Plateado Premium">
-        <img src="img/ataud1.jpg" alt="Ataúd Plateado Premium" />
+        <img src="img/ataudplateado.jpg" alt="Ataúd Plateado Premium" />
         <h3>Ataúd Plateado Premium</h3>
         <p>S/ 2,800.00</p>
         <button class="btn-comprar">Comprar</button>
-        
+      </article>
+
+      <!-- NUEVOS PRODUCTOS -->
+      <article class="producto" data-marca="emporium" data-precio="6000.00" data-nombre="Ataúd Emporium Royal">
+        <img src="img/ataud2.jpg" alt="Ataúd Emporium Royal" />
+        <h3>Ataúd Emporium Royal</h3>
+        <p>S/ 6,000.00</p>
+        <button class="btn-comprar">Comprar</button>
+      </article>
+
+      <article class="producto" data-marca="plateado" data-precio="2500.00" data-nombre="Ataúd Plateado Económico">
+        <img src="img/plateadoeconomico.jpg" alt="Ataúd Plateado Económico" />
+        <h3>Ataúd Plateado Económico</h3>
+        <p>S/ 2,500.00</p>
+        <button class="btn-comprar">Comprar</button>
+      </article>
+
+      <article class="producto" data-marca="emporium" data-precio="4800.00" data-nombre="Ataúd Emporium Clásico">
+        <img src="img/imperiunclasic.jpg" alt="Ataúd Emporium Clásico" />
+        <h3>Ataúd Emporium Clásico</h3>
+        <p>S/ 4,800.00</p>
+        <button class="btn-comprar">Comprar</button>
       </article>
 
     </div>

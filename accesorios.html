@@ -5,6 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Accesorios - Fritz REUTER</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* === Estilos de catálogo de accesorios === */
+    #catalogo-accesorios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem auto;
+      max-width: 1200px;
+      padding: 0 1rem;
+    }
+
+    #catalogo-accesorios .producto {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    #catalogo-accesorios .producto:hover {
+      transform: translateY(-5px);
+    }
+
+    #catalogo-accesorios .producto img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+    }
+
+    #catalogo-accesorios h3 {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    #catalogo-accesorios p {
+      font-weight: bold;
+      color: #444;
+      margin-bottom: 0.8rem;
+    }
+
+    .btn-comprar {
+      background: #222;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.3s;
+    }
+
+    .btn-comprar:hover {
+      background: #444;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #catalogo-accesorios {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- ENCABEZADO PRINCIPAL -->
@@ -21,18 +86,17 @@
       <label for="menu-toggle" class="menu-icon">☰</label>
 
       <!-- Menú de navegación -->
-     <nav class="nav-derecha">
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="servicios.html">Servicios</a></li>
-    <li><a href="accesorios.html">Accesorios</a></li>
-    <li><a href="precios.html">Precios</a></li>
-    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
-    <li><a href="mascotas.html">Mascotas</a></li> <!-- 🔹 Nueva pestaña -->
-    <li><input type="search" id="buscador" placeholder="Buscar..." /></li>
-  </ul>
-</nav>
-
+      <nav class="nav-derecha">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="accesorios.html" class="activo">Accesorios</a></li>
+          <li><a href="precios.html">Precios</a></li>
+          <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+          <li><a href="mascotas.html">Mascotas</a></li>
+        
+        </ul>
+      </nav>
     </div>
   </header>
 
@@ -47,7 +111,7 @@
     </section>
 
     <!-- FILTRO DE ORDENAMIENTO -->
-    <div class="filtros">
+    <div class="filtros" style="text-align:center; margin: 1rem 0;">
       <label for="ordenar-accesorios"><strong>Ordenar por:</strong></label>
       <select id="ordenar-accesorios">
         <option value="asc">Precio más bajo</option>
@@ -58,28 +122,88 @@
 
     <!-- CATÁLOGO DE PRODUCTOS -->
     <div id="catalogo-accesorios">
-      <article class="producto" data-precio="215" data-nombre="Juego de Asas" data-marca="accesorio">
+      <!-- 🔹 Productos -->
+      <article class="producto" data-precio="215" data-nombre="Juego de Asas">
         <img src="img/accesorio1.jpg" alt="Juego de asas" />
         <h3>Juego de Asas</h3>
         <p>S/ 215.00</p>
         <button class="btn-comprar">Comprar</button>
       </article>
-      <article class="producto" data-precio="236.45" data-nombre="Placa de Ataúd" data-marca="accesorio">
+
+      <article class="producto" data-precio="236.45" data-nombre="Placa de Ataúd">
         <img src="img/accesorio2.jpg" alt="Placa de Ataúd" />
         <h3>Placa de Ataúd</h3>
         <p>S/ 236.45</p>
         <button class="btn-comprar">Comprar</button>
       </article>
-      <article class="producto" data-precio="251" data-nombre="Juego de Manijas" data-marca="accesorio">
+
+      <article class="producto" data-precio="251" data-nombre="Juego de Manijas">
         <img src="img/accesorio3.jpg" alt="Juego de Manijas" />
         <h3>Juego de Manijas</h3>
         <p>S/ 251.00</p>
         <button class="btn-comprar">Comprar</button>
       </article>
-      <article class="producto" data-precio="29.13" data-nombre="Cerraduras" data-marca="accesorio">
+
+      <article class="producto" data-precio="29.13" data-nombre="Cerraduras">
         <img src="img/accesorio4.jpg" alt="Cerraduras" />
         <h3>Cerraduras</h3>
         <p>S/ 29.13</p>
+        <button class="btn-comprar">Comprar</button>
+      </article>
+
+      <article class="producto" data-precio="120" data-nombre="Cruz de Madera">
+        <img src="img/cruz.jpg" alt="Cruz de Madera" />
+        <h3>Cruz de Madera</h3>
+        <p>S/ 120.00</p>
+        <button class="btn-comprar">Comprar</button>
+      </article>
+
+      <article class="producto" data-precio="180" data-nombre="Urna de Mármol">
+        <img src="img/urna.jpg" alt="Urna de Mármol" />
+        <h3>Urna de Mármol</h3>
+        <p>S/ 180.00</p>
+        <button class="btn-comprar">Comprar</button>
+      </article>
+
+      <article class="producto" data-precio="95" data-nombre="Cojín Funerario">
+        <img src="img/cojin.png" alt="Cojín Funerario" />
+        <h3>Cojín Funerario</h3>
+        <p>S/ 95.00</p>
+        <button class="btn-comprar">Comprar</button>
+      </article>
+
+      <article class="producto" data-precio="150" data-nombre="Crucifijo Metálico">
+        <img src="img/crucifijo.jpg" alt="Crucifijo Metálico" />
+        <h3>Crucifijo Metálico</h3>
+        <p>S/ 150.00</p>
+        <button class="btn-comprar">Comprar</button>
+      </article>
+
+      <article class="producto" data-precio="80" data-nombre="Velero Doble">
+        <img src="img/velero.jpg" alt="Velero Doble" />
+        <h3>Velero Doble</h3>
+        <p>S/ 80.00</p>
+        <button class="btn-comprar">Comprar</button>
+      </article>
+
+      <article class="producto" data-precio="310" data-nombre="Urna de Cristal">
+        <img src="img/urnacristal.jpg" alt="Urna de Cristal" />
+        <h3>Urna de Cristal</h3>
+        <p>S/ 310.00</p>
+        <button class="btn-comprar">Comprar</button>
+      </article>
+
+      <article class="producto" data-precio="70" data-nombre="Lámpara de Velación">
+        <img src="img/lampara.jpg" alt="Lámpara de Velación" />
+        <h3>Lámpara de Velación</h3>
+        <p>S/ 70.00</p>
+        <button class="btn-comprar">Comprar</button>
+      </article>
+
+      <article class="producto" data-precio="60" data-nombre="Cinta con Dedicatoria">
+        <img src="img/cinta.jpg" alt="Cinta con Dedicatoria" />
+        <h3>Cinta con Dedicatoria</h3>
+        <p>S/ 60.00</p>
         <button class="btn-comprar">Comprar</button>
       </article>
     </div>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalizar Servicio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #005fa3, #0077cc);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #005fa3;
+    }
+
+    .opciones {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .card-opcion {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .card-opcion img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-opcion p {
+      font-weight: bold;
+      margin: 0;
+      color: #444;
+    }
+
+    .card-opcion:hover {
+      border-color: #0077cc;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    .card-opcion.seleccionada {
+      border-color: #0077cc;
+      background: #eef7ff;
+    }
+
+    .btns-acciones {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      min-width: 140px;
+    }
+
+    .btn-confirmar {
+      background: #0077cc;
+      color: white;
+    }
+
+    .btn-confirmar:hover {
+      background: #005fa3;
+    }
+
+    .btn-volver {
+      background: #ccc;
+      color: #333;
+    }
+
+    .btn-volver:hover {
+      background: #999;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .card-opcion img {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>✨ Personaliza tu servicio ✨</h1>
+  </header>
+
+  <main>
+    <form id="form-personalizar">
+
+      <!-- Selección de Ataúd -->
+      <h2>⚰️ Elige un Ataúd</h2>
+      <div class="opciones" data-categoria="ataud">
+        <div class="card-opcion" data-value="Ataúd Clásico">
+          <img src="img/ataud1.jpg" alt="Ataúd Clásico">
+          <p>Ataúd Clásico</p>
+        </div>
+        <div class="card-opcion" data-value="Ataúd Premium">
+          <img src="img/ataud2.jpg" alt="Ataúd Premium">
+          <p>Ataúd Premium</p>
+        </div>
+        <div class="card-opcion" data-value="Ataúd Blanco">
+          <img src="img/ata3.jpg" alt="Ataúd Blanco">
+          <p>Ataúd Blanco</p>
+        </div>
+      </div>
+
+      <!-- Selección de Carro Fúnebre -->
+      <h2>🚘 Elige un Carro Fúnebre</h2>
+      <div class="opciones" data-categoria="carro">
+        <div class="card-opcion" data-value="Carro Clásico">
+          <img src="img/clasico.jpg" alt="Carro Clásico">
+          <p>Carro Clásico</p>
+        </div>
+        <div class="card-opcion" data-value="Carro Moderno">
+          <img src="img/moderdno.jpg" alt="Carro Moderno">
+          <p>Carro Moderno</p>
+        </div>
+        <div class="card-opcion" data-value="Carro Negro Premium">
+          <img src="img/premium.jpg" alt="Carro Negro Premium">
+          <p>Carro Negro Premium</p>
+        </div>
+      </div>
+
+      <!-- Selección de Arreglo Floral -->
+      <h2>🌸 Elige un Arreglo Floral</h2>
+      <div class="opciones" data-categoria="floral">
+        <div class="card-opcion" data-value="Rosas Blancas">
+          <img src="img/elegante.jpg" alt="Rosas Blancas">
+          <p>Rosas Blancas</p>
+        </div>
+        <div class="card-opcion" data-value="Lirios Elegantes">
+          <img src="img/lirios.jpg" alt="Lirios Elegantes">
+          <p>Lirios Elegantes</p>
+        </div>
+        <div class="card-opcion" data-value="Orquídeas Especiales">
+          <img src="img/orqui.png" alt="Orquídeas Especiales">
+          <p>Orquídeas Especiales</p>
+        </div>
+      </div>
+
+      <div class="btns-acciones">
+        <button type="button" class="btn btn-volver" onclick="window.location.href='servicios.html'">⬅ Volver</button>
+        <button id="confirmar-seleccion" class="btn btn-confirmar">✅ Confirmar selección</button>
+      </div>
+
+    </form>
+  </main>
+
+  <script>
+    // Selección de tarjetas
+    document.querySelectorAll(".opciones").forEach(grupo => {
+      grupo.addEventListener("click", e => {
+        const card = e.target.closest(".card-opcion");
+        if (!card) return;
+
+        // Deseleccionar otras
+        grupo.querySelectorAll(".card-opcion").forEach(c => c.classList.remove("seleccionada"));
+        // Seleccionar actual
+        card.classList.add("seleccionada");
+      });
+    });
+
+    // Guardar y redirigir
+    document.getElementById("form-personalizar").addEventListener("submit", e => {
+      e.preventDefault();
+
+      const seleccion = {};
+      document.querySelectorAll(".opciones").forEach(grupo => {
+        const categoria = grupo.dataset.categoria;
+        const seleccionada = grupo.querySelector(".card-opcion.seleccionada");
+        if (seleccionada) {
+          seleccion[categoria] = seleccionada.dataset.value;
+        }
+      });
+
+      localStorage.setItem("seleccionPersonalizada", JSON.stringify(seleccion));
+      window.location.href = "servicios.html?plan=Personalizado";
+    });
+  </script>
+
+</body>
+</html>

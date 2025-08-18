@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ELEMENTOS DEL MODAL
   // ----------------------
   const modal = document.getElementById("modal-plan");
-  const cerrarModal = modal.querySelector(".cerrar-plan"); // corregido
+  const cerrarModal = modal.querySelector(".cerrar-plan"); 
   const listaServicios = document.getElementById("lista-servicios");
   const tituloPlan = document.getElementById("titulo-plan");
   const nuevoServicioInput = document.getElementById("nuevo-servicio");
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let serviciosActuales = [];
 
   // ----------------------
-  // ABRIR MODAL
+  // ABRIR MODAL DESDE BOTONES DE SERVICIOS
   // ----------------------
   document.querySelectorAll(".btn-personalizar").forEach(btn => {
     btn.addEventListener("click", e => {
@@ -33,6 +33,27 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.style.display = "flex";
     });
   });
+
+  // ----------------------
+  // ABRIR MODAL DESDE PLAN PERSONALIZADO (personalizar.html)
+  // ----------------------
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("plan") === "Personalizado") {
+    const seleccion = JSON.parse(localStorage.getItem("seleccionPersonalizada")) || {};
+
+    tituloPlan.textContent = "Plan Personalizado";
+    serviciosActuales = [
+      `Ataúd: ${seleccion.ataud || "No seleccionado"}`,
+      `Carro: ${seleccion.carro || "No seleccionado"}`,
+      `Arreglo Floral: ${seleccion.floral || "No seleccionado"}`
+    ];
+
+    renderizarServicios();
+    nuevoServicioInput.value = "";
+    formPlan.style.display = "block";
+    mensajeExito.style.display = "none";
+    modal.style.display = "flex";
+  }
 
   // ----------------------
   // CERRAR MODAL
@@ -99,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mensajeExito.style.display = "block";
     formPlan.reset();
 
-    // Si tienes bootstrap y quieres abrir modal de confirmación
+    // Si usas bootstrap para modal de pago
     if (btnPagar) {
       const modalPago = new bootstrap.Modal(document.getElementById("modalPago"));
       modalPago.show();
