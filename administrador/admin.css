@@ -1,0 +1,306 @@
+/* --- LAYOUT GENERAL --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* FIX universal */
+}
+
+.admin-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f7f7f7;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #4a90e2;
+  overflow-x: hidden; /* evita scroll lateral */
+}
+
+/* --- HEADER --- */
+.admin-header {
+  background: #4a90e2;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.admin-header h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+/* --- MAIN --- */
+.admin-main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* --- SIDEBAR --- */
+.admin-sidebar {
+  width: 240px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.admin-sidebar h2 {
+  margin-bottom: 1rem;
+  color: #4a90e2;
+}
+
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-sidebar ul li {
+  margin-bottom: 0.8rem;
+}
+
+.admin-sidebar ul li a {
+  display: block;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  color: #4a90e2;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.admin-sidebar ul li a:hover,
+.admin-sidebar ul li a.active {
+  background: #4a90e2;
+  color: white;
+}
+
+/* --- CONTENIDO --- */
+.admin-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* --- CARDS (dashboard) --- */
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.admin-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.admin-card:hover {
+  transform: translateY(-4px);
+}
+
+.admin-card h3 {
+  color: #4a90e2;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* --- FORMULARIOS --- */
+.admin-form {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  margin: 0 auto;
+}
+
+.admin-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.admin-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  max-width: 100%; /* FIX en mobile */
+}
+
+/* --- TABLAS --- */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* scroll horizontal */
+  -webkit-overflow-scrolling: touch; /* scroll suave en móviles */
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  min-width: 600px; /* fuerza scroll en móvil */
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap; /* evita cortes raros */
+}
+
+.admin-table th {
+  background: #4a90e2;
+  color: #fff;
+  font-weight: bold;
+}
+
+.admin-table tr:hover {
+  background: #f9f9f9;
+}
+
+/* --- Columna de acciones --- */
+.admin-table td.acciones {
+  min-width: 140px; /* asegura que entren los 2 botones */
+  white-space: nowrap;
+
+  /* FLEX para mantener botones alineados */
+  display: flex;
+  gap: 6px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.admin-table td.acciones button {
+  flex: none;
+  width: auto !important; /* no ocupar todo el ancho */
+  display: inline-block;
+}
+
+/* --- BOTONES --- */
+.btn-principal,
+.btn-secundario {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-principal:hover { background: #3579c2; }
+.btn-secundario:hover { background: #555; }
+
+/* --- BOTÓN HAMBURGUESA --- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    z-index: 100;
+  }
+
+  .admin-sidebar.active {
+    transform: translateX(0);
+  }
+
+  .admin-content {
+    padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-header h1 {
+    font-size: 1.1rem;
+  }
+
+  /* Botones en formularios sí ocupan todo el ancho */
+  .admin-form .btn-principal, 
+  .admin-form .btn-secundario {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    width: 100%; /* ancho completo solo en formularios */
+  }
+
+  .admin-card {
+    padding: 1rem;
+  }
+
+  .admin-content {
+    padding: 0.5rem;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .admin-form {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 6px;
+    box-shadow: none;
+  }
+
+  .admin-form input,
+  .admin-form select,
+  .admin-form textarea {
+    font-size: 1rem;
+    padding: 0.7rem;
+    max-width: 100% !important;
+  }
+
+  .admin-table {
+    min-width: 600px; /* mantiene ancho fijo y permite scroll */
+  }
+
+  .admin-table th,
+  .admin-table td {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .admin-table td.acciones {
+    min-width: 160px; /* un poquito más en móvil */
+  }
+}

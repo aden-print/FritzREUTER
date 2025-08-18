@@ -11,15 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const mensajeExito = document.getElementById("mensaje-exito");
   const btnWhatsapp = document.getElementById("btn-whatsapp");
 
-  btnComprar.forEach(btn => {
-    btn.addEventListener("click", e => {
-      const producto = e.target.closest(".producto").querySelector("h3").textContent;
-      productoInput.value = producto;
-      mensajeExito.style.display = "none";
-      formCompra.style.display = "block";
-      modal.style.display = "flex";
+  if (btnComprar) {
+    btnComprar.forEach(btn => {
+      btn.addEventListener("click", e => {
+        const producto = e.target.closest(".producto").querySelector("h3").textContent;
+        productoInput.value = producto;
+        mensajeExito.style.display = "none";
+        formCompra.style.display = "block";
+        modal.style.display = "flex";
+      });
     });
-  });
+  }
 
   if(cerrarModal) cerrarModal.addEventListener("click", () => modal.style.display = "none");
   window.addEventListener("click", e => { if(e.target === modal) modal.style.display = "none"; });
@@ -90,84 +92,162 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----------------------
   // DETECTAR Y EJECUTAR SEGÚN PÁGINA
   // ----------------------
-  // Precios y Arreglos Florales
   if(document.getElementById("catalogo-precios")){
     ordenarCatalogo("catalogo-precios","ordenar-precios","precio");
-    // Detectar si hay filtro (marca o tipo de flor)
     if(document.getElementById("filtro-marca")) filtrarCatalogo("catalogo-precios","filtro-marca","marca");
     if(document.getElementById("tipo-flor")) filtrarCatalogo("catalogo-precios","tipo-flor","marca");
   }
 
-  // Accesorios
   if(document.getElementById("catalogo") && document.getElementById("ordenar")){
     ordenarCatalogo("catalogo","ordenar","nombre");
   }
 
+  // ----------------------
+  // MODAL ACCESORIOS
+  // ----------------------
+  const modalAccesorios = document.getElementById("modal-accesorios");
+  const btnVerMas = document.querySelector("article.producto button.btn-comprar"); 
+  const cerrarAccesorios = document.querySelector(".cerrar-accesorios");
 
+  const listaCarrito = document.getElementById("lista-carrito");
+  const totalAccesorios = document.getElementById("total-accesorios");
 
-});
-// Modal de accesorios
-const modalAccesorios = document.getElementById("modal-accesorios");
-const btnVerMas = document.querySelector("article.producto button.btn-comprar"); 
-const cerrarAccesorios = document.querySelector(".cerrar-accesorios");
+  let total = 0;
 
-const listaCarrito = document.getElementById("lista-carrito");
-const totalAccesorios = document.getElementById("total-accesorios");
-
-let total = 0;
-
-// Abrir modal de accesorios (cuando sea "Ver más")
-btnVerMas.addEventListener("click", function(e) {
-  if (e.target.textContent === "Ver más") {
-    modalAccesorios.style.display = "block";
-  }
-});
-
-// Cerrar modal de accesorios
-cerrarAccesorios.addEventListener("click", () => {
-  modalAccesorios.style.display = "none";
-});
-
-// Agregar producto al carrito
-document.querySelectorAll(".btn-agregar").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const item = btn.parentElement;
-    const nombre = item.querySelector("h3").textContent;
-    const precio = parseInt(item.querySelector("p").textContent.replace("S/.", ""));
-
-    // Crear item en carrito
-    const li = document.createElement("li");
-    li.textContent = `${nombre} - S/.${precio}`;
-    
-    // Botón quitar
-    const btnQuitar = document.createElement("button");
-    btnQuitar.textContent = "Quitar";
-    btnQuitar.style.marginLeft = "10px";
-    btnQuitar.addEventListener("click", () => {
-      total -= precio;
-      totalAccesorios.textContent = total;
-      li.remove();
+  if (btnVerMas) {
+    btnVerMas.addEventListener("click", function(e) {
+      if (e.target.textContent === "Ver más") {
+        modalAccesorios.style.display = "block";
+      }
     });
+  }
 
-    li.appendChild(btnQuitar);
-    listaCarrito.appendChild(li);
+  if (cerrarAccesorios) {
+    cerrarAccesorios.addEventListener("click", () => {
+      modalAccesorios.style.display = "none";
+    });
+  }
 
-    // Sumar total
-    total += precio;
-    totalAccesorios.textContent = total;
+  document.querySelectorAll(".btn-agregar").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const item = btn.parentElement;
+      const nombre = item.querySelector("h3").textContent;
+      const precio = parseInt(item.querySelector("p").textContent.replace("S/.", ""));
+
+      const li = document.createElement("li");
+      li.textContent = `${nombre} - S/.${precio}`;
+      
+      const btnQuitar = document.createElement("button");
+      btnQuitar.textContent = "Quitar";
+      btnQuitar.style.marginLeft = "10px";
+      btnQuitar.addEventListener("click", () => {
+        total -= precio;
+        totalAccesorios.textContent = total;
+        li.remove();
+      });
+
+      li.appendChild(btnQuitar);
+      listaCarrito.appendChild(li);
+
+      total += precio;
+      totalAccesorios.textContent = total;
+    });
   });
+
+  const finalizarAccesorios = document.getElementById("finalizar-accesorios");
+  if (finalizarAccesorios) {
+    finalizarAccesorios.addEventListener("click", () => {
+      modalAccesorios.style.display = "none";
+      document.getElementById("modal-compra").style.display = "block";
+    });
+  }
+
+  // ----------------------
+  // LOGIN
+  // ----------------------
+  const formLogin = document.getElementById("form-login");
+
+  if (formLogin) {
+    formLogin.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      // Cuenta admin fija
+      if (email === "admin@fritz.com" && password === "admin123") {
+        localStorage.setItem("usuarioLogeado", JSON.stringify({ email, rol: "admin" }));
+        window.location.href = "administrador/admin.html";
+        return;
+      }
+
+      // Buscar en usuarios registrados
+      const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+      const usuario = usuarios.find((u) => u.email === email && u.password === password);
+
+      if (usuario) {
+        localStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
+        alert("✅ Bienvenido " + usuario.nombre);
+        window.location.href = "index.html";
+      } else {
+        alert("❌ Credenciales incorrectas");
+      }
+    });
+  }
+
 });
 
-// Finalizar compra accesorios
-document.getElementById("finalizar-accesorios").addEventListener("click", () => {
-  modalAccesorios.style.display = "none";
-  document.getElementById("modal-compra").style.display = "block";
-});
-// Al abrir el formulario de compra
+//registro
+
+// ----------------------
+// REGISTRO
+// ----------------------
 document.addEventListener("DOMContentLoaded", () => {
-  const personalizado = localStorage.getItem("seleccionPersonalizada");
-  if (personalizado) {
-    document.getElementById("producto-seleccionado").value = personalizado;
-    localStorage.removeItem("seleccionPersonalizada"); // limpiar después
+  const formRegistro = document.getElementById("form-registro");
+
+  if (formRegistro) {
+    formRegistro.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nombre   = document.getElementById("nombre").value.trim();
+      const email    = document.getElementById("email-registro").value.trim();
+      const password = document.getElementById("password-registro").value.trim();
+      const confirmar= document.getElementById("confirmar").value.trim();
+
+      if (!nombre || !email || !password || !confirmar) {
+        alert("⚠️ Completa todos los campos");
+        return;
+      }
+
+      if (password !== confirmar) {
+        alert("⚠️ Las contraseñas no coinciden");
+        return;
+      }
+
+      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+      const existe = usuarios.find(u => u.email === email);
+      if (existe) {
+        alert("❌ Este correo ya está registrado");
+        return;
+      }
+
+      const nuevoUsuario = { nombre, email, password, rol: "usuario" };
+      usuarios.push(nuevoUsuario);
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+      // Si existe el modal de éxito, lo mostramos; si no, redirigimos con alert.
+      const modalExito = document.getElementById("modal-exito");
+      if (modalExito) {
+        modalExito.style.display = "flex";
+        const irLogin = document.getElementById("ir-login");
+        if (irLogin) {
+          irLogin.addEventListener("click", () => window.location.href = "login.html");
+        }
+      } else {
+        alert("✅ Registro exitoso. Ahora puedes iniciar sesión");
+        window.location.href = "login.html";
+      }
+    });
   }
 });

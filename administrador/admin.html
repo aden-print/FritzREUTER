@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- LAYOUT PRINCIPAL -->
+  <div class="admin-main">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <h2>Admin</h2>
+      <ul>
+        <li><a href="admin.html" class="active">Dashboard</a></li>
+        <li><a href="usuarios.html">Usuarios</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="pedidos.html">Pedidos</a></li>
+        <li><a href="configuracion.html">Configuración</a></li>
+        <li><a href="#" id="btn-cerrar-sesion">Cerrar sesión</a></li>
+      </ul>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="admin-content">
+
+     <header class="admin-header">
+  <h1>Gestión de Usuarios</h1>
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+</header>
+
+
+      <!-- DASHBOARD -->
+      <section class="admin-cards">
+        <div class="admin-card">
+          <h3>👥 Usuarios</h3>
+          <p>Total registrados: <span id="total-usuarios">0</span></p>
+        </div>
+        <div class="admin-card">
+          <h3>📦 Productos</h3>
+          <p>Total productos: <span id="total-productos">0</span></p>
+        </div>
+        <div class="admin-card">
+          <h3>🛒 Pedidos</h3>
+          <p>Total pedidos: <span id="total-pedidos">0</span></p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- JS PRINCIPAL -->
+  <script src="admin.js"></script>
+</body>
+</html>

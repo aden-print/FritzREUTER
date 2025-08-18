@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Fritz REUTER</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="login-body">
+
+  <!-- HEADER -->
+  <header class="header-principal">
+      <div class="header-container"> <!-- Contenedor general del encabezado -->
+
+      <div class="logo-grande">
+  <a href="index.html">
+    <img src="img/logo.png" alt="Fritz REUTER logo" />
+  </a>
+</div>
+
+
+      <!-- Botón hamburguesa para menú en pantallas pequeñas -->
+      <input type="checkbox" id="menu-toggle" /> <!-- Checkbox oculto que controla la visibilidad del menú -->
+      <label for="menu-toggle" class="menu-icon">☰</label> <!-- Icono del menú hamburguesa -->
+
+<!-- Menú de navegación -->
+<nav class="nav-derecha">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="accesorios.html">Accesorios</a></li>
+    <li><a href="precios.html">Precios</a></li>
+    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+    <li><a href="mascotas.html">Mascotas</a></li>
+    <li><a href="cremaciones.html">Cremaciones</a></li> <!-- 🔹 Nueva pestaña -->
+
+    <!-- 🔹 Login/Admin -->
+    <li class="login-icon">
+      <a href="login.html" title="Acceso Admin">
+        <img src="img/login.png" alt="Login" />
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div> <!-- Fin header-container -->
+  </header>
+
+  <!-- MAIN -->
+  <main class="login-container">
+    <div class="login-card">
+      <h1 class="titulo-login">Acceso <span>Admin</span></h1>
+      <p class="subtitle">Ingresa tus credenciales para continuar</p>
+
+      <!-- Formulario Login -->
+      <form id="form-login" class="form-box">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="ejemplo@correo.com" required />
+        </div>
+
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" placeholder="********" required />
+        </div>
+
+        <button type="submit" class="btn-principal">Iniciar Sesión</button>
+      </form>
+
+      <p class="register-text">
+        ¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

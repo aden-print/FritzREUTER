@@ -474,3 +474,130 @@ footer {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+/* Imágenes de productos uniformes */
+.catalogo .producto img {
+  width: 100%;
+  height: 220px;   /* 🔹 todas tendrán la misma altura */
+  object-fit: cover; /* 🔹 recorta para que no se deforme */
+  border-radius: 8px; /* opcional, esquinas suaves */
+  display: block; /* evita espacios extra debajo */
+}
+/* === LOGIN PAGE === */
+.login-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f7f7f7; /* Fondo neutro que combina con cualquier esquema */
+}
+
+.login-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 15px;
+}
+
+.login-card {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.titulo-login {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: var(--color-texto, #333); /* Usa el color de texto que ya tengas */
+}
+
+.titulo-login span {
+  color: var(--color-principal, #0056b3); /* Tu color principal */
+}
+
+.subtitle {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.form-box .input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-box label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.form-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.form-box input:focus {
+  border-color: var(--color-principal, #0056b3);
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+}
+
+.btn-principal {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background: var(--color-principal, #0056b3);
+  color: #fff;
+  transition: 0.3s;
+}
+
+.btn-principal:hover {
+  background: var(--color-hover, #004494);
+}
+
+.register-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.register-text a {
+  color: var(--color-principal, #0056b3);
+  text-decoration: none;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+.btn-secundario {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid var(--color-principal);
+  background: var(--color-secundario, #0056b3); /* color de fondo */
+  color: #fff; /* texto blanco */
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+/* Ajustar tamaño del ícono login */
+.login-icon img {
+  width: 28px;   /* puedes cambiar a 24px, 32px según tu gusto */
+  height: 28px;
+  object-fit: contain; /* mantiene proporción */
+  vertical-align: middle;
+}

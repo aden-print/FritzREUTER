@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración - Administración</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- LAYOUT PRINCIPAL -->
+  <div class="admin-main">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <h2>Admin</h2>
+      <ul>
+        <li><a href="admin.html">Dashboard</a></li>
+        <li><a href="usuarios.html">Usuarios</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="pedidos.html">Pedidos</a></li>
+        <li><a href="configuracion.html" class="active">Configuración</a></li>
+        <li><a href="#" id="btn-cerrar-sesion">Cerrar sesión</a></li>
+      </ul>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="admin-content">
+
+    <header class="admin-header">
+  <h1>Gestión de Usuarios</h1>
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+</header>
+
+
+      <!-- FORMULARIO DE CONFIGURACIÓN -->
+      <section>
+        <h2>Opciones generales</h2>
+        <form id="form-configuracion" class="admin-form">
+
+          <div class="form-group">
+            <label for="nombre-empresa">Nombre de la empresa</label>
+            <input type="text" id="nombre-empresa" placeholder="Ej: Funeraria Fritz REUTER" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email-contacto">Email de contacto</label>
+            <input type="email" id="email-contacto" placeholder="Ej: contacto@empresa.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono-contacto">Teléfono</label>
+            <input type="tel" id="telefono-contacto" placeholder="Ej: +51 999 999 999" required>
+          </div>
+
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" placeholder="Ej: Av. Principal 123, Lima, Perú" required>
+          </div>
+
+          <div class="form-group">
+            <label for="moneda">Moneda</label>
+            <select id="moneda">
+              <option value="PEN">Soles (PEN)</option>
+              <option value="USD">Dólares (USD)</option>
+              <option value="EUR">Euros (EUR)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-principal">Guardar Cambios</button>
+        </form>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

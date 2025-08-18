@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mascotas - Servicios</title>
+  <title>Cremaciones - Servicios</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -23,25 +23,24 @@
       <label for="menu-toggle" class="menu-icon">☰</label>
 
       <!-- Menú de navegación -->
-<nav class="nav-derecha">
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="servicios.html">Servicios</a></li>
-    <li><a href="accesorios.html">Accesorios</a></li>
-    <li><a href="precios.html">Precios</a></li>
-    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
-    <li><a href="mascotas.html">Mascotas</a></li>
-    <li><a href="cremaciones.html">Cremaciones</a></li> <!-- 🔹 Nueva pestaña -->
+      <nav class="nav-derecha">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="accesorios.html">Accesorios</a></li>
+          <li><a href="precios.html">Precios</a></li>
+          <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+          <li><a href="mascotas.html">Mascotas</a></li>
+          <li><a href="cremaciones.html" class="active">Cremaciones</a></li>
 
-    <!-- 🔹 Login/Admin -->
-    <li class="login-icon">
-      <a href="login.html" title="Acceso Admin">
-        <img src="img/login.png" alt="Login" />
-      </a>
-    </li>
-  </ul>
-</nav>
-
+          <!-- 🔹 Login/Admin -->
+          <li class="login-icon">
+            <a href="login.html" title="Acceso Admin">
+              <img src="img/login.png" alt="Login" />
+            </a>
+          </li>
+        </ul>
+      </nav>
 
     </div>
   </header>
@@ -49,56 +48,42 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Servicios <span>para Mascotas</span></h1>
-      <p>Ofrecemos atención especial para tus fieles compañeros: cremación, recuerdos personalizados y accesorios.</p>
-      <img src="img/perrito.jpg" alt="Mascotas" class="hero-img">
+      <h1>Servicios de <span>Cremación</span></h1>
+      <p>Brindamos servicios de cremación con respeto y acompañamiento en cada detalle.</p>
+      <img src="img/cremacion1.jpeg" alt="Cremaciones" class="hero-img">
     </div>
   </section>
 
   <!-- DESCRIPCIÓN -->
   <section class="container section-box">
-    <h2>Atención Especial para tus Mascotas</h2>
-    <p>Contamos con paquetes diseñados para perros y gatos, desde servicios funerarios hasta recuerdos únicos que honran su memoria.</p>
+    <h2>Atención en Servicios de Cremación</h2>
+    <p>Nuestros paquetes de cremación están diseñados para brindar tranquilidad y apoyo en momentos difíciles, con opciones adaptadas a tus necesidades.</p>
   </section>
 
   <!-- CATÁLOGO DE SERVICIOS -->
-  <main class="container catalogo" id="catalogo-mascotas">
+  <main class="container catalogo" id="catalogo-cremaciones">
 
-    <article class="producto" data-precio="100">
-      <img src="img/basico.jpg" alt="Servicio Básico Mascotas">
-      <h3>Servicio Básico</h3>
-      <p class="precio">S/.100</p>
+    <article class="producto" data-precio="1200" data-nombre="Cremación Básica">
+      <img src="img/cremacion1.jpeg" alt="Cremación básica">
+      <h3>Cremación Básica</h3>
+      <p class="precio">S/.1200</p>
       <ul class="detalles">
-        <li>Traslado de la mascota</li>
-        <li>Cremación individual</li>
+        <li>Servicio básico de cremación</li>
+        <li>Atención personalizada</li>
         <li>Entrega de cenizas en urna estándar</li>
       </ul>
       <button class="btn-comprar">Adquirir</button>
     </article>
 
-    <article class="producto" data-precio="180">
-      <img src="img/caro.jpg" alt="Servicio Premium Mascotas">
-      <h3>Servicio Premium</h3>
-      <p class="precio">S/.180</p>
+    <article class="producto" data-precio="2000" data-nombre="Cremación Premium">
+      <img src="img/cremacion2.jpeg" alt="Cremación premium">
+      <h3>Cremación Premium</h3>
+      <p class="precio">S/.2000</p>
       <ul class="detalles">
-        <li>Traslado de la mascota</li>
-        <li>Cremación individual premium</li>
+        <li>Servicio de cremación premium</li>
         <li>Urna personalizada</li>
-        <li>Certificado con huellita</li>
-        <li>Recuerdo fotográfico</li>
-      </ul>
-      <button class="btn-comprar">Adquirir</button>
-    </article>
-
-    <article class="producto" data-precio="0">
-      <img src="img/produ.jpg" alt="Accesorios y Recuerdos">
-      <h3>Accesorios y Recuerdos</h3>
-      <p>Urnas, plaquitas, huellitas y más.</p>
-      <ul class="detalles">
-        <li>Urnas de madera o cerámica</li>
-        <li>Collares con placa grabada</li>
-        <li>Impresión de huellita en arcilla</li>
-        <li>Portarretratos personalizados</li>
+        <li>Asesoría y acompañamiento</li>
+        <li>Recordatorio especial</li>
       </ul>
       <button class="btn-comprar">Adquirir</button>
     </article>
