@@ -80,7 +80,7 @@
   </section>
 
   <!-- CATÁLOGO DE ARREGLOS -->
-  <main class="container catalogo" id="catalogo-precios">
+  <main class="container catalogo" id="catalogo-arreglos">
     <article class="producto" data-marca="rosas" data-precio="120" data-nombre="Rosas Blancas Elegantes">
       <img src="img/1.jpeg" alt="Rosas Blancas Elegantes">
       <h3>Rosas Blancas Elegantes</h3>
@@ -187,5 +187,29 @@
   </footer>
 
   <script src="script.js"></script>
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const catalogo = document.getElementById("catalogo-arreglos");
+      const productos = JSON.parse(localStorage.getItem("productos")) || [];
+
+      // Filtrar SOLO los de categoría "arreglos"
+      const productosFiltrados = productos.filter(p => p.categoria === "arreglos");
+
+      productosFiltrados.forEach(prod => {
+        const articulo = document.createElement("article");
+        articulo.classList.add("producto");
+        articulo.dataset.precio = prod.precio;
+        articulo.dataset.nombre = prod.nombre;
+
+        articulo.innerHTML = `
+          <img src="${prod.imagen}" alt="${prod.nombre}">
+          <h3>${prod.nombre}</h3>
+          <p>S/ ${prod.precio}</p>
+          <button class="btn-comprar">Comprar</button>
+        `;
+        catalogo.appendChild(articulo);
+      });
+    });
+  </script>
 </body>
 </html>

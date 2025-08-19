@@ -108,23 +108,22 @@
     <section class="section-box contact-box"> 
   <h2>Contáctanos</h2>
   <ul>
-    <li><strong>Teléfono:</strong> +51 910 082 285</li>
-    <li><strong>Email:</strong> contacto@fritzreuter.com</li>
-    <li><strong>Dirección:</strong> Av. La Union, La Union</li>
+    <li><strong>Teléfono:</strong> <span id="contacto-telefono">+51 910 082 285</span></li>
+    <li><strong>Email:</strong> <span id="contacto-email">contacto@fritzreuter.com</span></li>
+    <li><strong>Dirección:</strong> <span id="contacto-direccion">Av. La Union, La Union</span></li>
   </ul>
 
- <!-- Redes sociales -->
-<div class="redes-contacto">
-  <p><strong>Síguenos en nuestras redes:</strong></p>
-  <a href="https://www.facebook.com/maribel.villegasramirez.3/" target="_blank">
-    <img src="img/fb.png" alt="Facebook">
-  </a>
-  <a href="https://www.instagram.com/jota_alexander.bpr/" target="_blank">
-    <img src="img/insta.png" alt="Instagram">
-  </a>
-</div>
-
-
+  <!-- Redes sociales -->
+  <div class="redes-contacto">
+    <p><strong>Síguenos en nuestras redes:</strong></p>
+    <a href="https://www.facebook.com/maribel.villegasramirez.3/" target="_blank">
+      <img src="img/fb.png" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/jota_alexander.bpr/" target="_blank">
+      <img src="img/insta.png" alt="Instagram">
+    </a>
+  </div>
+</section>
 
   </main> <!-- Fin del contenido principal -->
 
@@ -133,5 +132,26 @@
     <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p> <!-- Derechos reservados -->
   </footer>
 <script src="script.js"></script>
+<script>
+  function actualizarContacto() {
+    const datos = JSON.parse(localStorage.getItem("datosContacto"));
+    if (datos) {
+      document.getElementById("contacto-email").textContent = datos.email;
+      document.getElementById("contacto-telefono").textContent = datos.telefono;
+      document.getElementById("contacto-direccion").textContent = datos.direccion;
+    }
+  }
+
+  // Al cargar la página
+  window.addEventListener("DOMContentLoaded", actualizarContacto);
+
+  // Escuchar cambios en localStorage en tiempo real
+  window.addEventListener("storage", function(event) {
+    if (event.key === "datosContacto") {
+      actualizarContacto();
+    }
+  });
+</script>
+
 </body>
 </html>

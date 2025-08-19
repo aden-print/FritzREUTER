@@ -8,9 +8,7 @@
 </head>
 <body class="admin-body">
 
-  <!-- LAYOUT PRINCIPAL -->
   <div class="admin-main">
-
     <!-- SIDEBAR -->
     <aside class="admin-sidebar">
       <h2>Admin</h2>
@@ -18,7 +16,6 @@
         <li><a href="admin.html">Dashboard</a></li>
         <li><a href="usuarios.html">Usuarios</a></li>
         <li><a href="productos.html" class="active">Productos</a></li>
-        <li><a href="pedidos.html">Pedidos</a></li>
         <li><a href="configuracion.html">Configuración</a></li>
         <li><a href="#" id="btn-cerrar-sesion">Cerrar sesión</a></li>
       </ul>
@@ -26,23 +23,35 @@
 
     <!-- CONTENIDO PRINCIPAL -->
     <div class="admin-content">
+      <header class="admin-header">
+        <h1>Gestión de Productos</h1>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+      </header>
 
-      <!-- HEADER -->
-    <header class="admin-header">
-  <h1>Gestión de Usuarios</h1>
-  <button class="menu-toggle" id="menu-toggle">☰</button>
-</header>
-
-
-      <!-- BOTÓN AGREGAR PRODUCTO -->
-      <div style="margin: 1rem 0;">
-        <button class="btn-principal" id="btn-agregar">+ Agregar Producto</button>
-      </div>
-
-      <!-- TABLA DE PRODUCTOS -->
+      <!-- FORMULARIO -->
       <section>
-        <h2>Lista de productos</h2>
+        <h2>Agregar producto</h2>
+        <form id="form-agregar-producto" class="formulario-producto">
+          <input type="text" id="nombre" placeholder="Nombre del producto" required>
+          <input type="number" id="precio" placeholder="Precio" step="0.01" required>
 
+          <!-- Categoría destino -->
+          <select id="categoria" required>
+            <option value="" disabled selected>Selecciona categoría</option>
+            <option value="accesorios">Accesorios</option>
+            <option value="precios">Precios</option>
+            <option value="arreglos">Arreglos florales</option>
+          </select>
+
+          <input type="number" id="stock" placeholder="Stock" required>
+          <input type="file" id="imagen" accept="image/*" required>
+          <button type="submit" class="btn-principal">Agregar</button>
+        </form>
+      </section>
+
+      <!-- TABLA -->
+      <section style="margin-top: 2rem;">
+        <h2>Lista de productos</h2>
         <div class="table-container">
           <table class="admin-table">
             <thead>
@@ -50,18 +59,15 @@
                 <th>#</th>
                 <th>Nombre</th>
                 <th>Precio</th>
-                <th>Categoría</th>
+                <th>categoria</th>
                 <th>Stock</th>
                 <th>Acciones</th>
               </tr>
             </thead>
-            <tbody id="tabla-productos">
-              <!-- JS rellenará aquí -->
-            </tbody>
+            <tbody id="tabla-productos"></tbody>
           </table>
         </div>
       </section>
-
     </div>
   </div>
 

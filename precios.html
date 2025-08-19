@@ -183,5 +183,34 @@
 
   <!-- SCRIPT -->
   <script src="script.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const catalogo = document.getElementById("catalogo-precios");
+  if (!catalogo) return;
+
+  // Cargar productos del localStorage
+  let productos = JSON.parse(localStorage.getItem("productos")) || [];
+
+  // Filtrar por categoría "precios" o "ataudes" (elige una categoría que uses al registrar en productos.html)
+  productos
+    .filter(p => p.categoria === "precios") // 🔹 ajusta esto según cómo guardes la categoría
+    .forEach(p => {
+      const article = document.createElement("article");
+      article.classList.add("producto");
+      article.dataset.precio = p.precio;
+      article.dataset.nombre = p.nombre;
+
+      article.innerHTML = `
+        <img src="${p.imagen || 'img/default.jpg'}" alt="${p.nombre}" />
+        <h3>${p.nombre}</h3>
+        <p>S/ ${parseFloat(p.precio).toFixed(2)}</p>
+        <button class="btn-comprar">Comprar</button>
+      `;
+
+      catalogo.appendChild(article);
+    });
+});
+</script>
+
 </body>
 </html>

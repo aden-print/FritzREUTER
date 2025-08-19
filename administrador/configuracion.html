@@ -18,7 +18,6 @@
         <li><a href="admin.html">Dashboard</a></li>
         <li><a href="usuarios.html">Usuarios</a></li>
         <li><a href="productos.html">Productos</a></li>
-        <li><a href="pedidos.html">Pedidos</a></li>
         <li><a href="configuracion.html" class="active">Configuración</a></li>
         <li><a href="#" id="btn-cerrar-sesion">Cerrar sesión</a></li>
       </ul>
@@ -35,45 +34,55 @@
 
       <!-- FORMULARIO DE CONFIGURACIÓN -->
       <section>
-        <h2>Opciones generales</h2>
-        <form id="form-configuracion" class="admin-form">
+  <h2>Opciones de contacto</h2>
+  <form id="form-configuracion" class="admin-form">
 
-          <div class="form-group">
-            <label for="nombre-empresa">Nombre de la empresa</label>
-            <input type="text" id="nombre-empresa" placeholder="Ej: Funeraria Fritz REUTER" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email-contacto">Email de contacto</label>
-            <input type="email" id="email-contacto" placeholder="Ej: contacto@empresa.com" required>
-          </div>
-
-          <div class="form-group">
-            <label for="telefono-contacto">Teléfono</label>
-            <input type="tel" id="telefono-contacto" placeholder="Ej: +51 999 999 999" required>
-          </div>
-
-          <div class="form-group">
-            <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" placeholder="Ej: Av. Principal 123, Lima, Perú" required>
-          </div>
-
-          <div class="form-group">
-            <label for="moneda">Moneda</label>
-            <select id="moneda">
-              <option value="PEN">Soles (PEN)</option>
-              <option value="USD">Dólares (USD)</option>
-              <option value="EUR">Euros (EUR)</option>
-            </select>
-          </div>
-
-          <button type="submit" class="btn-principal">Guardar Cambios</button>
-        </form>
-      </section>
-
+    <div class="form-group">
+      <label for="email-contacto">Email de contacto</label>
+      <input type="email" id="email-contacto" placeholder="Ej: contacto@empresa.com" required>
     </div>
-  </div>
 
-  <script src="admin.js"></script>
+    <div class="form-group">
+      <label for="telefono-contacto">Teléfono</label>
+      <input type="tel" id="telefono-contacto" placeholder="Ej: +51 999 999 999" required>
+    </div>
+
+    <div class="form-group">
+      <label for="direccion">Dirección</label>
+      <input type="text" id="direccion" placeholder="Ej: Av. Principal 123, Lima, Perú" required>
+    </div>
+
+    <button type="submit" class="btn-principal">Guardar Cambios</button>
+  </form>
+</section>
+<script src="admin.js"></script>
+<script>
+  document.getElementById("form-configuracion").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Tomar valores del formulario
+    const email = document.getElementById("email-contacto").value;
+    const telefono = document.getElementById("telefono-contacto").value;
+    const direccion = document.getElementById("direccion").value;
+
+    // Guardar en localStorage
+    const datosContacto = { email, telefono, direccion };
+    localStorage.setItem("datosContacto", JSON.stringify(datosContacto));
+
+    alert("Datos de contacto guardados correctamente ✅");
+  });
+
+  // Cargar valores guardados cuando se abra la página
+  window.addEventListener("DOMContentLoaded", () => {
+    const guardados = JSON.parse(localStorage.getItem("datosContacto"));
+    if (guardados) {
+      document.getElementById("email-contacto").value = guardados.email;
+      document.getElementById("telefono-contacto").value = guardados.telefono;
+      document.getElementById("direccion").value = guardados.direccion;
+    }
+  });
+</script>
+
+  
 </body>
 </html>

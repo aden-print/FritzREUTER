@@ -251,3 +251,56 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+function renderCatalogo() {
+  // OJO: ya no limpiamos con innerHTML = ""
+  // Dejamos los productos estáticos y solo agregamos los nuevos
+  const arreglos = productos.filter(p => p.categoria.toLowerCase() === "arreglos");
+
+  if (arreglos.length === 0) return;
+
+  arreglos.forEach(prod => {
+    const card = document.createElement("article");
+    card.classList.add("producto");
+    card.setAttribute("data-marca", prod.categoria.toLowerCase());
+    card.setAttribute("data-precio", prod.precio);
+    card.setAttribute("data-nombre", prod.nombre);
+
+    card.innerHTML = `
+      <img src="${prod.imagen}" alt="${prod.nombre}">
+      <h3>${prod.nombre}</h3>
+      <p>S/.${prod.precio}</p>
+      <button class="btn-comprar">Comprar</button>
+    `;
+
+    contenedor.appendChild(card);
+  });
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const contenedor = document.getElementById("catalogo-arreglo");
+  const productos = JSON.parse(localStorage.getItem("productos")) || [];
+
+  function renderCatalogo() {
+    // mantenemos productos estáticos y solo añadimos nuevos
+    const arreglos = productos.filter(p => p.categoria.toLowerCase() === "arreglos");
+    if (arreglos.length === 0) return;
+
+    arreglos.forEach(prod => {
+      const card = document.createElement("article");
+      card.classList.add("producto");
+      card.setAttribute("data-marca", prod.categoria.toLowerCase());
+      card.setAttribute("data-precio", prod.precio);
+      card.setAttribute("data-nombre", prod.nombre);
+
+      card.innerHTML = `
+        <img src="${prod.imagen}" alt="${prod.nombre}">
+        <h3>${prod.nombre}</h3>
+        <p>S/.${prod.precio}</p>
+        <button class="btn-comprar">Comprar</button>
+      `;
+
+      contenedor.appendChild(card);
+    });
+  }
+
+  renderCatalogo(); // 👈 aquí se ejecuta
+});

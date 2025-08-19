@@ -255,52 +255,152 @@
     font-size: 1.1rem;
   }
 
-  /* Botones en formularios sí ocupan todo el ancho */
-  .admin-form .btn-principal, 
-  .admin-form .btn-secundario {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-    width: 100%; /* ancho completo solo en formularios */
+/* --- FORMULARIO ESTILO HORIZONTAL (solo en PC) --- */
+@media (min-width: 992px) {
+  .admin-form.form-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;   /* alinea los inputs con el label */
+    gap: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
-  .admin-card {
-    padding: 1rem;
+  .admin-form.form-horizontal .form-group {
+    flex: 1;
+    min-width: 200px;       /* ajusta según el espacio que quieras */
+    margin-bottom: 0;       /* quita espacio vertical */
   }
 
-  .admin-content {
-    padding: 0.5rem;
-    width: 100%;
-    overflow-x: hidden;
+  .admin-form.form-horizontal .form-group label {
+    margin-bottom: 0.3rem;
   }
 
-  .admin-form {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 1rem;
-    margin: 0;
-    border-radius: 6px;
-    box-shadow: none;
+  .admin-form.form-horizontal .btn-principal {
+    flex: none;
+    align-self: center;
+    margin-left: auto;      /* botón alineado a la derecha */
   }
+}
+}
 
-  .admin-form input,
-  .admin-form select,
-  .admin-form textarea {
-    font-size: 1rem;
-    padding: 0.7rem;
-    max-width: 100% !important;
-  }
 
-  .admin-table {
-    min-width: 600px; /* mantiene ancho fijo y permite scroll */
-  }
+/* Bloque del formulario */
+.formulario-producto {
+  background-color: #4a90e2; /* fondo celeste fuerte */
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;        
+  gap: 0.8rem;          
+  flex-wrap: wrap;      
+}
 
-  .admin-table th,
-  .admin-table td {
-    font-size: 0.85rem;
-    padding: 0.6rem;
-  }
+/* Campos */
+.formulario-producto input,
+.formulario-producto select,
+.formulario-producto input[type="file"] {
+  background-color: #e6f5ff; /* celestito claro para contraste */
+  border: 1px solid #cce7f9;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #034c74; /* azul oscuro para el texto */
+}
 
-  .admin-table td.acciones {
-    min-width: 160px; /* un poquito más en móvil */
-  }
+/* Botón */
+.btn-principal {
+  background-color: #1773db; /* un tono más fuerte que el bloque */
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-principal:hover {
+  background-color: #0f5db5;
+  transform: translateY(-2px);
+}
+/* Estilo para input file */
+.formulario-producto input[type="file"] {
+  background-color: #e6f5ff; /* celestito claro */
+  border: 1px solid #cce7f9;
+  border-radius: 6px;
+  padding: 0.4rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #034c74; /* azul oscuro para texto */
+  cursor: pointer;
+}
+
+/* Botón interno del file (para Chrome/Edge) */
+.formulario-producto input[type="file"]::file-selector-button {
+  background-color: #1773db;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  margin-right: 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.formulario-producto input[type="file"]::file-selector-button:hover {
+  background-color: #0f5db5;
+  transform: translateY(-1px);
+}
+/* Input file */
+.formulario-producto input[type="file"] {
+  background-color: #e6f5ff;   /* fondo celestito claro */
+  border: 1px solid #cce7f9;
+  border-radius: 6px;
+  padding: 0.45rem 0.6rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #034c74;              /* color del texto */
+  cursor: pointer;
+  max-width: 100%;             /* evita que se desborde */
+  overflow: hidden;            /* corta texto largo */
+  text-overflow: ellipsis;     /* agrega "..." si es largo */
+  white-space: nowrap;
+}
+
+/* Botón interno (Chrome/Edge/Opera) */
+.formulario-producto input[type="file"]::file-selector-button {
+  background-color: #1773db;
+  color: #fff;
+  border: none;
+  padding: 0.45rem 0.8rem;
+  margin-right: 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.formulario-producto input[type="file"]::file-selector-button:hover {
+  background-color: #0f5db5;
+  transform: translateY(-1px);
+}
+
+/* Para Firefox */
+.formulario-producto input[type="file"]::-webkit-file-upload-button {
+  background-color: #1773db;
+  color: #fff;
+  border: none;
+  padding: 0.45rem 0.8rem;
+  margin-right: 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.formulario-producto input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #0f5db5;
 }

@@ -255,27 +255,34 @@
 
   <!-- SCRIPT -->
   <script src="script.js"></script>
-  <script>
-    // Ordenar accesorios
-    document.addEventListener("DOMContentLoaded", () => {
-      const catalogo = document.getElementById("catalogo-accesorios");
-      const select = document.getElementById("ordenar-accesorios");
-      if(catalogo && select){
-        const ordenar = () => {
-          const productos = Array.from(catalogo.querySelectorAll(".producto"));
-          const modo = select.value;
-          productos.sort((a,b)=>{
-            if(modo==="asc") return parseFloat(a.dataset.precio)-parseFloat(b.dataset.precio);
-            if(modo==="desc") return parseFloat(b.dataset.precio)-parseFloat(a.dataset.precio);
-            if(modo==="nombre") return a.dataset.nombre.localeCompare(b.dataset.nombre);
-            return 0;
-          });
-          productos.forEach(prod => catalogo.appendChild(prod));
-        };
-        select.addEventListener("change", ordenar);
-        ordenar();
-      }
+  
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const catalogo = document.getElementById("catalogo-accesorios");
+
+  if (!catalogo) return;
+
+  // 👉 Obtener productos guardados en localStorage
+  let productos = JSON.parse(localStorage.getItem("productos")) || [];
+
+  // 👉 Filtrar solo los de esta categoría
+  productos
+    .filter(p => p.categoria === "accesorios") // cambia según tu página
+    .forEach(p => {
+      const article = document.createElement("article");
+      article.classList.add("producto");
+      article.dataset.precio = p.precio;
+      article.dataset.nombre = p.nombre;
+      article.innerHTML = `
+        <img src="${p.imagen}" alt="${p.nombre}" />
+        <h3>${p.nombre}</h3>
+        <p>S/ ${parseFloat(p.precio).toFixed(2)}</p>
+        <button class="btn-comprar">Comprar</button>
+      `;
+      catalogo.appendChild(article);
     });
-  </script>
+});
+</script>
+
 </body>
 </html>

@@ -18,7 +18,6 @@
         <li><a href="admin.html" class="active">Dashboard</a></li>
         <li><a href="usuarios.html">Usuarios</a></li>
         <li><a href="productos.html">Productos</a></li>
-        <li><a href="pedidos.html">Pedidos</a></li>
         <li><a href="configuracion.html">Configuración</a></li>
         <li><a href="#" id="btn-cerrar-sesion">Cerrar sesión</a></li>
       </ul>
@@ -27,11 +26,11 @@
     <!-- CONTENIDO PRINCIPAL -->
     <div class="admin-content">
 
-     <header class="admin-header">
-  <h1>Gestión de Usuarios</h1>
-  <button class="menu-toggle" id="menu-toggle">☰</button>
-</header>
-
+      <!-- HEADER -->
+      <header class="admin-header">
+        <h1>Dashboard</h1>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+      </header>
 
       <!-- DASHBOARD -->
       <section class="admin-cards">
@@ -41,7 +40,7 @@
         </div>
         <div class="admin-card">
           <h3>📦 Productos</h3>
-          <p>Total productos: <span id="total-productos">0</span></p>
+          <p>Total productos: <span id="total-productos">30</span></p>
         </div>
         <div class="admin-card">
           <h3>🛒 Pedidos</h3>
@@ -52,7 +51,10 @@
     </div>
   </div>
 
-  <!-- JS PRINCIPAL -->
+  <!-- ORDEN DE SCRIPTS -->
+  <!-- 1. Productos por defecto -->
+  <script src="productos.js"></script>
+  <!-- 2. JS de administración -->
   <script src="admin.js"></script>
 </body>
 </html>
