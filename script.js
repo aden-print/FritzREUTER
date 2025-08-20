@@ -304,3 +304,93 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderCatalogo(); // 👈 aquí se ejecuta
 });
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ----------------------
+  // FUNCIONES AUXILIARES
+  // ----------------------
+  const getPrecio = art => parseFloat(art.dataset.precio) || 0;
+  const getNombre = art => art.querySelector("h3")?.textContent.trim().toLowerCase() || "";
+
+  function ordenarCatalogo(catalogoId, selectId, tipo="precio"){
+    const catalogo = document.getElementById(catalogoId);
+    const select = document.getElementById(selectId);
+    if(!catalogo || !select) return;
+
+    const ordenar = () => {
+      const productos = Array.from(catalogo.querySelectorAll(".producto"));
+      const modo = select.value;
+
+      productos.sort((a,b) => {
+        if(tipo==="precio"){
+          if(modo==="asc") return getPrecio(a) - getPrecio(b);
+          if(modo==="desc") return getPrecio(b) - getPrecio(a);
+          if(modo==="nombre") return getNombre(a).localeCompare(getNombre(b));
+        } else if(tipo==="nombre"){
+          return getNombre(a).localeCompare(getNombre(b));
+        }
+        return 0;
+      }).forEach(prod => catalogo.appendChild(prod));
+    };
+
+    select.addEventListener("change", ordenar);
+    ordenar();
+  }
+
+  function filtrarCatalogo(catalogoId, filtroId, dataAttr){
+    const catalogo = document.getElementById(catalogoId);
+    const filtro = document.getElementById(filtroId);
+    if(!catalogo || !filtro) return;
+
+    filtro.addEventListener("change", () => {
+      const valor = filtro.value;
+      catalogo.querySelectorAll(".producto").forEach(prod => {
+        prod.style.display = (valor==="todos" || prod.dataset[dataAttr]===valor) ? "" : "none";
+      });
+    });
+  }
+
+  // ----------------------
+  // DETECTAR Y EJECUTAR SEGÚN PÁGINA
+  // ----------------------
+  if(document.getElementById("catalogo-precios")){
+    ordenarCatalogo("catalogo-precios","ordenar-precios","precio");
+    if(document.getElementById("filtro-marca")) filtrarCatalogo("catalogo-precios","filtro-marca","marca");
+    if(document.getElementById("tipo-flor")) filtrarCatalogo("catalogo-precios","tipo-flor","marca");
+  }
+
+  if(document.getElementById("catalogo") && document.getElementById("ordenar")){
+    ordenarCatalogo("catalogo","ordenar","nombre");
+  }
+
+  // 🔹 NUEVO PARA ACCESORIOS
+  if(document.getElementById("catalogo-accesorios") && document.getElementById("ordenar-accesorios")){
+    ordenarCatalogo("catalogo-accesorios","ordenar-accesorios","precio");
+  }
+
+  // ----------------------
+  // RENDER ARREGLOS DESDE LOCALSTORAGE
+  // ----------------------
+  const contenedor = document.getElementById("catalogo-arreglo");
+  const productos = JSON.parse(localStorage.getItem("productos")) || [];
+
+  if (contenedor) {
+    const arreglos = productos.filter(p => p.categoria.toLowerCase() === "arreglos");
+    arreglos.forEach(prod => {
+      const card = document.createElement("article");
+      card.classList.add("producto");
+      card.setAttribute("data-marca", prod.categoria.toLowerCase());
+      card.setAttribute("data-precio", prod.precio);
+      card.setAttribute("data-nombre", prod.nombre);
+
+      card.innerHTML = `
+        <img src="${prod.imagen}" alt="${prod.nombre}">
+        <h3>${prod.nombre}</h3>
+        <p>S/.${prod.precio}</p>
+        <button class="btn-comprar">Comprar</button>
+      `;
+      contenedor.appendChild(card);
+    });
+  }
+
+});

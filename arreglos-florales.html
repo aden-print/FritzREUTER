@@ -210,6 +210,36 @@
         catalogo.appendChild(articulo);
       });
     });
+    document.addEventListener("DOMContentLoaded", () => {
+  const catalogo = document.getElementById("catalogo-arreglos");
+  const filtroFlor = document.getElementById("tipo-flor");
+  const ordenarPrecios = document.getElementById("ordenar-precios");
+
+  const aplicarFiltros = () => {
+    const tipoSeleccionado = filtroFlor.value;
+    const productos = Array.from(catalogo.querySelectorAll(".producto"));
+
+    productos.forEach(prod => {
+      const tipo = prod.dataset.marca; // rosas, lirios, orquideas
+      prod.style.display = (tipoSeleccionado === "todos" || tipo === tipoSeleccionado) ? "" : "none";
+    });
+  };
+
+  const aplicarOrden = () => {
+    const orden = ordenarPrecios.value;
+    const productos = Array.from(catalogo.querySelectorAll(".producto"));
+    productos.sort((a, b) => {
+      const precioA = parseFloat(a.dataset.precio);
+      const precioB = parseFloat(b.dataset.precio);
+      return orden === "asc" ? precioA - precioB : precioB - precioA;
+    });
+    productos.forEach(p => catalogo.appendChild(p));
+  };
+
+  // Eventos
+  filtroFlor.addEventListener("change", aplicarFiltros);
+  ordenarPrecios.addEventListener("change", aplicarOrden);
+});
   </script>
 </body>
 </html>
