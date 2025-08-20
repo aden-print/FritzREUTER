@@ -2,156 +2,174 @@
 <html lang="es"> <!-- Define el idioma principal del contenido como español -->
 
 <head>
-  <meta charset="UTF-8" /> <!-- Define la codificación de caracteres como UTF-8 (soporta caracteres especiales) -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Hace que el diseño sea adaptable a dispositivos móviles -->
-  <title>Fritz REUTER - Inicio</title> <!-- Título de la pestaña del navegador -->
-  <link rel="stylesheet" href="styles.css" /> <!-- Enlaza el archivo de estilos externo -->
+  <meta charset="UTF-8" /> <!-- Define la codificación de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Adaptable a móviles -->
+  <title>Fritz REUTER - Inicio</title> <!-- Título de la pestaña -->
+  <link rel="stylesheet" href="styles.css" /> <!-- Estilos externos -->
 </head>
-
 
 <body>
 
   <!-- ENCABEZADO PRINCIPAL -->
   <header class="header-principal">
-    <div class="header-container"> <!-- Contenedor general del encabezado -->
+    <div class="header-container">
 
       <div class="logo-grande">
-  <a href="index.html">
-    <img src="img/logo.png" alt="Fritz REUTER logo" />
-  </a>
+        <a href="index.html">
+          <img src="img/logo.png" alt="Fritz REUTER logo" />
+        </a>
+      </div>
+
+      <!-- Botón hamburguesa -->
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">☰</label>
+
+      <!-- Menú -->
+      <nav class="nav-derecha">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="accesorios.html">Accesorios</a></li>
+          <li><a href="precios.html">Precios</a></li>
+          <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
+          <li><a href="mascotas.html">Mascotas</a></li>
+          <li><a href="cremaciones.html">Cremaciones</a></li>
+          <li class="login-icon">
+            <a href="login.html" title="Acceso Admin">
+              <img src="img/login.png" alt="Login" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+  
+  <!-- SECCIÓN HERO -->
+<!-- SECCIÓN HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Bienvenidos a <span>Fritz REUTER</span></h1>
+    <p>Atención funeraria digna, profesional y humana. Acompañamos con respeto en los momentos más delicados.</p>
+
+    <!-- 🔹 Slider en vez de imagen fija -->
+   <div class="slider">
+  <div class="slides">
+    <img src="img/presentacion.jpg" alt="Imagen 1">
+    <img src="img/presentacion2.jpg" alt="Imagen 2">
+    <img src="img/presentacion3.jpg" alt="Imagen 3">
+  </div>
+
+  <!-- Controles -->
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+
+  <!-- Indicadores -->
+  <div class="indicators"></div>
 </div>
 
 
-      <!-- Botón hamburguesa para menú en pantallas pequeñas -->
-      <input type="checkbox" id="menu-toggle" /> <!-- Checkbox oculto que controla la visibilidad del menú -->
-      <label for="menu-toggle" class="menu-icon">☰</label> <!-- Icono del menú hamburguesa -->
-
-<!-- Menú de navegación -->
-<nav class="nav-derecha">
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="servicios.html">Servicios</a></li>
-    <li><a href="accesorios.html">Accesorios</a></li>
-    <li><a href="precios.html">Precios</a></li>
-    <li><a href="arreglos-florales.html">Arreglos Florales</a></li>
-    <li><a href="mascotas.html">Mascotas</a></li>
-    <li><a href="cremaciones.html">Cremaciones</a></li> <!-- 🔹 Nueva pestaña -->
-
-    <!-- 🔹 Login/Admin -->
-    <li class="login-icon">
-      <a href="login.html" title="Acceso Admin">
-        <img src="img/login.png" alt="Login" />
-      </a>
-    </li>
-  </ul>
-</nav>
-
-
-
-    </div> <!-- Fin header-container -->
-  </header>
-  
-
-  <!-- SECCIÓN HERO -->
-  <section class="hero">
-    <div class="hero-content"> <!-- Contenedor del contenido principal (hero) -->
-      <h1>Bienvenidos a <span>Fritz REUTER</span></h1> <!-- Título de bienvenida -->
-      <p>Atención funeraria digna, profesional y humana. Acompañamos con respeto en los momentos más delicados.</p> <!-- Subtítulo o eslogan -->
-      <img src="img/presentacion.jpg" alt="Ataúd elegante" class="hero-img"> <!-- Imagen destacada del hero -->
+    <!-- Botones debajo del slider -->
+    <div class="hero-buttons">
+      <a href="#sobre-nosotros" class="btn-scroll">Sobre Nosotros</a>
+      <a href="#mision" class="btn-scroll">Misión</a>
+      <a href="#vision" class="btn-scroll">Visión</a>
+      <a href="#contacto" class="btn-scroll">Contáctanos</a>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- SECCIÓN DESTACADOS -->
-  <section class="destacados container"> <!-- Sección con tarjetas informativas -->
-    <h2>¿Por qué elegirnos?</h2> <!-- Título de la sección -->
-    <div class="cards-container"> <!-- Contenedor de las tarjetas -->
+  <section class="destacados container">
+    <h2>¿Por qué elegirnos?</h2>
+    <div class="cards-container">
 
-      <article class="card"> <!-- Primera tarjeta -->
-        <img src="img/icono1.png" alt="Empatía" /> <!-- Icono de la tarjeta -->
-        <h3>Atención Humana</h3> <!-- Título de la tarjeta -->
-        <p>Nos enfocamos en acompañar con sensibilidad y respeto.</p> <!-- Descripción -->
+      <article class="card">
+        <img src="img/icono1.png" alt="Empatía" />
+        <h3>Atención Humana</h3>
+        <p>Nos enfocamos en acompañar con sensibilidad y respeto.</p>
       </article>
 
-      <article class="card"> <!-- Segunda tarjeta -->
+      <article class="card">
         <img src="img/icono2.png" alt="Calidad" />
         <h3>Calidad y detalle</h3>
         <p>Servicios personalizados y detallados para cada necesidad.</p>
       </article>
 
-      <article class="card"> <!-- Tercera tarjeta -->
+      <article class="card">
         <img src="img/icono3.png" alt="Trayectoria" />
         <h3>Experiencia</h3>
         <p>Años de servicio nos respaldan como líderes en el sector.</p>
       </article>
 
-    </div> <!-- Fin de cards-container -->
+    </div>
   </section>
 
   <!-- INFORMACIÓN GENERAL PRINCIPAL -->
-  <main class="container"> <!-- Contenedor principal de contenido -->
+  <main class="container">
 
-    <section class="section-box"> <!-- Sección "Sobre nosotros" -->
+    <section id="sobre-nosotros" class="section-box">
       <h2>Sobre Nosotros</h2>
       <p>Somos una empresa funeraria dedicada a brindar servicios de calidad, personalizados y con profundo respeto por cada familia.</p>
     </section>
 
-    <section class="section-box"> <!-- Sección "Misión" -->
+    <section id="mision" class="section-box">
       <h2>Misión</h2>
       <p>Brindar soluciones funerarias integrales, con empatía y compromiso, garantizando una despedida digna y serena.</p>
     </section>
 
-    <section class="section-box"> <!-- Sección "Visión" -->
+    <section id="vision" class="section-box">
       <h2>Visión</h2>
       <p>Ser la funeraria referente en atención humanizada y excelencia en el servicio en el país.</p>
     </section>
 
-    <section class="section-box contact-box"> 
-  <h2>Contáctanos</h2>
-  <ul>
-    <li><strong>Teléfono:</strong> <span id="contacto-telefono">+51 910 082 285</span></li>
-    <li><strong>Email:</strong> <span id="contacto-email">contacto@fritzreuter.com</span></li>
-    <li><strong>Dirección:</strong> <span id="contacto-direccion">Av. La Union, La Union</span></li>
-  </ul>
+    <section id="contacto" class="section-box contact-box">
+      <h2>Contáctanos</h2>
+      <ul>
+        <li><strong>Teléfono:</strong> <span id="contacto-telefono">+51 910 082 285</span></li>
+        <li><strong>Email:</strong> <span id="contacto-email">contacto@fritzreuter.com</span></li>
+        <li><strong>Dirección:</strong> <span id="contacto-direccion">Av. La Union, La Union</span></li>
+      </ul>
 
-  <!-- Redes sociales -->
-  <div class="redes-contacto">
-    <p><strong>Síguenos en nuestras redes:</strong></p>
-    <a href="https://www.facebook.com/maribel.villegasramirez.3/" target="_blank">
-      <img src="img/fb.png" alt="Facebook">
-    </a>
-    <a href="https://www.instagram.com/jota_alexander.bpr/" target="_blank">
-      <img src="img/insta.png" alt="Instagram">
-    </a>
-  </div>
-</section>
+      <!-- Redes sociales -->
+      <div class="redes-contacto">
+        <p><strong>Síguenos en nuestras redes:</strong></p>
+        <a href="https://www.facebook.com/maribel.villegasramirez.3/" target="_blank">
+          <img src="img/fb.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/jota_alexander.bpr/" target="_blank">
+          <img src="img/insta.png" alt="Instagram">
+        </a>
+      </div>
+    </section>
 
-  </main> <!-- Fin del contenido principal -->
+  </main>
 
   <!-- PIE DE PÁGINA -->
   <footer>
-    <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p> <!-- Derechos reservados -->
+    <p>&copy; 2025 Fritz REUTER - Todos los derechos reservados.</p>
   </footer>
-<script src="script.js"></script>
-<script>
-  function actualizarContacto() {
-    const datos = JSON.parse(localStorage.getItem("datosContacto"));
-    if (datos) {
-      document.getElementById("contacto-email").textContent = datos.email;
-      document.getElementById("contacto-telefono").textContent = datos.telefono;
-      document.getElementById("contacto-direccion").textContent = datos.direccion;
-    }
-  }
 
-  // Al cargar la página
-  window.addEventListener("DOMContentLoaded", actualizarContacto);
-
-  // Escuchar cambios en localStorage en tiempo real
-  window.addEventListener("storage", function(event) {
-    if (event.key === "datosContacto") {
-      actualizarContacto();
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    function actualizarContacto() {
+      const datos = JSON.parse(localStorage.getItem("datosContacto"));
+      if (datos) {
+        document.getElementById("contacto-email").textContent = datos.email;
+        document.getElementById("contacto-telefono").textContent = datos.telefono;
+        document.getElementById("contacto-direccion").textContent = datos.direccion;
+      }
     }
-  });
-</script>
+
+    window.addEventListener("DOMContentLoaded", actualizarContacto);
+    window.addEventListener("storage", function(event) {
+      if (event.key === "datosContacto") {
+        actualizarContacto();
+      }
+    });
+  </script>
 
 </body>
 </html>

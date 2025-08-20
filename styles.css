@@ -267,7 +267,7 @@ footer {
 
 /* === MODAL === */
 .modal {
-  display: none;
+  display: none; /* se activa con display:flex */
   position: fixed;
   top: 0;
   left: 0;
@@ -283,11 +283,12 @@ footer {
   background-color: #fff;
   padding: 1.5rem;
   border-radius: 12px;
-  width: 420px;
-  max-width: 95%;
+  width: 90%;          /* se adapta en móviles */
+  max-width: 420px;    /* límite en pantallas grandes */
   position: relative;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
+
 
 .modal-content h2 {
   margin-top: 0;
@@ -600,4 +601,122 @@ footer {
   height: 28px;
   object-fit: contain; /* mantiene proporción */
   vertical-align: middle;
+}
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-scroll {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+  font-weight: bold;
+}
+
+.btn-scroll:hover {
+  background-color: #222;
+}
+.section-box {
+  scroll-margin-top: 120px; /* cambia 120px por la altura de tu header */
+}
+
+
+
+/* --- SLIDER GENERAL --- */
+.slider {
+  position: relative;
+  max-width: 900px;   /* ancho máximo en PC */
+  height: 450px;      /* 🔹 altura fija para que cover funcione bien */
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.slides img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 🔹 ocupa todo, sin franjas negras */
+  border-radius: 18px;
+}
+
+/* --- BOTONES --- */
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.slider .prev { left: 15px; }
+.slider .next { right: 15px; }
+
+.slider button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 1024px) {
+  .slider { height: 400px; }
+}
+
+@media (max-width: 768px) {
+  .slider { height: 300px; }
+}
+
+@media (max-width: 480px) {
+  .slider { height: 220px; }
+  .slider button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+ 
+
+
+/*estilos para los nuevos productos agregados*/
+
+  @media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+    padding: 1rem;
+  }
 }

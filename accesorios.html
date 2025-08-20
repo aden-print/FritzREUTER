@@ -223,23 +223,38 @@
       <span class="cerrar">&times;</span>
       <h2>Formulario de Compra</h2>
       <form id="form-compra">
-        <label>Nombre:</label>
-        <input type="text" id="nombre" required>
-        <label>Dirección:</label>
-        <input type="text" id="direccion" required>
-        <label>Teléfono:</label>
-        <input type="tel" id="telefono" required>
-        <label>Método de Pago:</label>
-        <select id="metodo" required>
-          <option value="">Seleccione</option>
-          <option value="tarjeta">Tarjeta</option>
-          <option value="yape">Yape</option>
-          <option value="efectivo">Efectivo</option>
-        </select>
-        <label>Producto:</label>
-        <input type="text" id="producto-seleccionado" readonly>
-        <button type="submit">Pagar</button>
-      </form>
+  <label>Nombre:</label>
+  <input type="text" id="nombre" name="nombre" required minlength="3" maxlength="50" placeholder="Tu nombre completo">
+
+  <label>Dirección:</label>
+  <input type="text" id="direccion" name="direccion" required minlength="5" maxlength="80" placeholder="Ej: Av. Lima 123">
+
+  <label>Teléfono:</label>
+  <input 
+    type="tel" 
+    id="telefono" 
+    name="telefono" 
+    required 
+    pattern="[0-9]{9}" 
+    maxlength="9" 
+    placeholder="9 dígitos"
+    inputmode="numeric"
+  >
+
+  <label>Método de Pago:</label>
+  <select id="metodo" name="metodo" required>
+    <option value="">Seleccione</option>
+    <option value="tarjeta">Tarjeta</option>
+    <option value="yape">Yape</option>
+    <option value="efectivo">Efectivo</option>
+  </select>
+
+  <label>Producto:</label>
+  <input type="text" id="producto-seleccionado" readonly>
+
+  <button type="submit">Pagar</button>
+</form>
+
       <div id="mensaje-exito" style="display:none; margin-top:1rem; color:green; font-weight:bold;">
         Pago realizado con éxito ✅
         <br>
@@ -281,6 +296,17 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       catalogo.appendChild(article);
     });
+});
+const tel = document.getElementById("telefono");
+
+tel.addEventListener("input", function () {
+  // Reemplaza todo lo que no sea número
+  this.value = this.value.replace(/[^0-9]/g, "");
+
+  // Limita a 9 dígitos
+  if (this.value.length > 9) {
+    this.value = this.value.slice(0, 9);
+  }
 });
 </script>
 

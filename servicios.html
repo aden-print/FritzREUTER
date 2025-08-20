@@ -170,6 +170,17 @@
   </script>
   <script src="script.js"></script>
   <script src="servicios.js"></script>
+  <script>const tel = document.getElementById("telefono");
+
+tel.addEventListener("input", function () {
+  // Reemplaza todo lo que no sea número
+  this.value = this.value.replace(/[^0-9]/g, "");
+
+  // Limita a 9 dígitos
+  if (this.value.length > 9) {
+    this.value = this.value.slice(0, 9);
+  }
+});</script>
 
 </body>
 </html>
